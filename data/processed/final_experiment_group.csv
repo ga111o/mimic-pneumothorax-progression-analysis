@@ -1,0 +1,171 @@
+subject_id,hadm_id,stay_id,anchor_age,diagnosis_name,procedure_time,group_label,imaging_confirmed,procedure_confirmed,confirmation_method
+10070552,20016181,,80,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10129119,22141961,32839650.0,59,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10136781,26967395,30734750.0,22,Traumatic pneumohemothorax without mention of open wound into thorax,2162-09-26 16:02:00,experimental,True,True,Both
+10285224,25954588,,66,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10287696,25425030,34287288.0,23,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10289125,25484210,37716176.0,29,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10311956,25628815,36577532.0,39,Traumatic pneumohemothorax without mention of open wound into thorax,2123-03-12 15:55:00,experimental,True,True,Both
+10355090,29743906,37522394.0,57,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10425960,21379443,,60,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10426650,28656452,36347369.0,19,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10432862,27862430,35404654.0,51,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10440477,25073935,,32,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+10489976,25703682,35106696.0,57,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10511849,24590632,37738027.0,21,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10561631,29016706,37749200.0,86,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10597471,21772082,32025998.0,34,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10597762,23838403,,79,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10655111,28722686,38927418.0,49,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+10739071,20507827,,59,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11055521,25553393,31301146.0,82,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11057136,20849590,33291610.0,63,Secondary spontaneous pneumothorax,,experimental,True,False,Imaging_Only
+11080491,23469082,,64,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11102581,22608575,38427531.0,32,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11130293,23883380,32685790.0,75,Traumatic pneumohemothorax without mention of open wound into thorax,2144-05-09 18:00:00,experimental,True,True,Both
+11259646,22520122,32337287.0,54,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+11408002,22007278,31837753.0,58,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11505821,25755836,35825215.0,91,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11660628,23822647,31337610.0,91,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11773170,21589731,31272209.0,50,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11842131,22421984,,40,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+11930299,21594759,34655056.0,35,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12071000,28004613,34607326.0,40,Traumatic pneumohemothorax without mention of open wound into thorax,2141-05-09 12:45:00,experimental,True,True,Both
+12096263,24877189,39009999.0,68,Traumatic pneumohemothorax without mention of open wound into thorax,2149-04-27 10:07:00,experimental,True,True,Both
+12135489,20988658,36273745.0,51,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12166241,22527080,,59,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12166241,26426138,,59,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12237086,28586574,,30,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12286594,24456433,,46,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12332280,26784490,37667374.0,77,Traumatic pneumohemothorax without mention of open wound into thorax,2157-03-15 16:40:00,experimental,True,True,Both
+12466550,23998182,30000153.0,61,Spontaneous tension pneumothorax,2174-09-30 10:00:00,experimental,True,True,Both
+12476775,23934968,38813138.0,76,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+12590117,25059932,36429336.0,62,Traumatic pneumohemothorax without mention of open wound into thorax,2142-04-11 17:59:00,experimental,True,True,Both
+12598717,28771814,,23,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12625315,25735377,38924408.0,54,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12747015,28432105,37701324.0,89,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12747015,29748060,32186858.0,89,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12755718,25929136,,33,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12764579,26841076,39227109.0,56,Traumatic pneumohemothorax without mention of open wound into thorax,2148-10-27 14:00:00,experimental,True,True,Both
+12798882,27500392,,50,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12948105,21536541,,60,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12981642,29698327,35597654.0,78,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+12999833,27562459,,29,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13036184,28963674,35144051.0,75,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13042215,22928611,,91,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13052788,25151803,32653616.0,52,Traumatic pneumohemothorax without mention of open wound into thorax,2160-09-30 08:33:00,experimental,True,True,Both
+13090641,26828003,38205011.0,52,Traumatic pneumohemothorax without mention of open wound into thorax,2142-02-27 20:26:00,experimental,True,True,Both
+13174810,24580237,34291164.0,28,Traumatic pneumohemothorax without mention of open wound into thorax,2165-02-25 13:20:00,experimental,True,True,Both
+13319005,29085238,37670762.0,72,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13390681,24795528,37428284.0,73,Traumatic pneumohemothorax without mention of open wound into thorax,2145-02-14 14:47:00,experimental,True,True,Both
+13482448,20560920,,67,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13523655,20893266,35951217.0,47,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13585285,24410313,,78,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13652184,20632140,39203458.0,42,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13689531,26312042,37482910.0,24,Traumatic pneumohemothorax without mention of open wound into thorax,2145-05-02 17:09:00,experimental,True,True,Both
+13717272,23404494,36833167.0,91,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+13870027,20065900,30288477.0,87,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+13924190,28018239,30864651.0,67,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14062735,23112368,,45,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14135313,23616361,30226029.0,44,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14180468,22833387,,23,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14485079,26903661,,30,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14522065,25439488,,30,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14541250,27435069,,91,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+14614404,21170581,37796488.0,63,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14638111,27704719,36920501.0,33,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+14712255,22533648,30172532.0,77,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14749884,27144454,30065121.0,40,Primary spontaneous pneumothorax,,experimental,True,False,Imaging_Only
+14784406,29067422,35802666.0,19,Spontaneous tension pneumothorax,2125-06-05 17:25:00,experimental,True,True,Both
+14830899,22138932,,49,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+14910666,23036757,32462556.0,70,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15112602,26355294,,55,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+15173403,22779802,37255763.0,82,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15188629,28370514,39596494.0,82,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15266091,23938628,,28,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15269527,27717072,32665059.0,58,Traumatic pneumohemothorax without mention of open wound into thorax,2117-04-13 16:21:00,experimental,True,True,Both
+15364782,27452196,36271272.0,50,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15446875,24335941,31189746.0,79,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15499152,20648397,30910494.0,59,Traumatic pneumohemothorax without mention of open wound into thorax,2183-01-30 11:30:00,experimental,True,True,Both
+15535516,23720349,35335476.0,91,Traumatic pneumohemothorax without mention of open wound into thorax,2157-06-29 17:18:00,experimental,True,True,Both
+15552068,27524157,,73,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15573581,20246175,,62,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15573581,28874202,,62,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15619729,25414866,,47,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15780296,22110859,37221313.0,19,Traumatic pneumohemothorax without mention of open wound into thorax,2179-01-18 13:30:00,experimental,True,True,Both
+15914763,28906020,36909804.0,51,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15970954,23570678,35774142.0,70,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+15973689,27404481,36523970.0,52,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16221749,27178811,31757945.0,60,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16243656,29962996,30399865.0,61,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16282250,29986306,33333152.0,44,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16287302,27615290,38999848.0,43,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16376075,27349721,37688367.0,65,Spontaneous tension pneumothorax,2180-09-07 13:30:00,experimental,True,True,Both
+16402020,23252373,35692039.0,63,Spontaneous tension pneumothorax,2186-01-22 08:45:00,experimental,True,True,Both
+16605468,20336138,,68,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16751749,23609330,33496369.0,74,Spontaneous tension pneumothorax,2145-04-27 12:00:00,experimental,True,True,Both
+16766248,29094792,31609668.0,81,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+16815463,27022067,30022281.0,64,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16906695,23802026,37724570.0,34,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+16956478,26339842,39761896.0,48,Traumatic pneumohemothorax without mention of open wound into thorax,2128-01-23 13:07:00,experimental,True,True,Both
+16989180,20348776,,18,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+16992571,21375958,37036405.0,76,Traumatic pneumohemothorax without mention of open wound into thorax,2136-10-08 16:00:00,experimental,True,True,Both
+17025318,28554832,33629088.0,29,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17071750,28532364,,46,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17135687,21163281,32420242.0,28,Traumatic pneumohemothorax without mention of open wound into thorax,2185-04-21 02:30:00,experimental,True,True,Both
+17210043,24095434,,43,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17220978,20045916,39798050.0,65,Primary spontaneous pneumothorax,,experimental,True,False,Imaging_Only
+17285870,23856772,,59,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17312622,20164044,,84,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17321268,29918086,,63,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17361558,23578487,31974561.0,60,Traumatic pneumohemothorax without mention of open wound into thorax,2147-08-08 20:10:00,experimental,True,True,Both
+17411141,20418714,32380366.0,26,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17445092,26722718,,85,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17524724,21090681,37189090.0,22,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17590696,23863732,,34,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17604215,28285933,30907727.0,34,Spontaneous tension pneumothorax,2183-12-23 19:30:00,experimental,True,True,Both
+17634227,23513624,,22,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17820613,20363775,34356375.0,64,Traumatic pneumohemothorax without mention of open wound into thorax,2183-09-06 08:15:00,experimental,True,True,Both
+17834381,22786449,30835655.0,35,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+17911943,24428355,39816062.0,19,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+17916774,20491610,35467275.0,62,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18089156,25336980,,77,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18089320,20678506,39423338.0,82,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18153920,20648204,39432076.0,82,Traumatic pneumohemothorax without mention of open wound into thorax,2123-01-05 04:40:00,experimental,True,True,Both
+18214183,21965672,39585377.0,79,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18221225,24977385,,32,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18351705,29003784,,91,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18367270,23992696,38695310.0,30,Spontaneous tension pneumothorax,2175-12-01 21:27:00,experimental,True,True,Both
+18396675,24307373,32042377.0,22,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18450223,24116026,34113263.0,41,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18553599,25683047,36491806.0,43,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18562338,25474182,32061632.0,28,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18595899,26078531,,86,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+18599567,24714185,35558988.0,62,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18637590,29316616,,41,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18667961,21909937,38492427.0,70,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+18679317,24116701,37496219.0,81,Traumatic pneumohemothorax without mention of open wound into thorax,2165-07-29 14:57:00,experimental,True,True,Both
+18744984,26162728,33001071.0,61,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19023641,25083387,35545799.0,47,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+19103579,29870510,32234130.0,28,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19162392,27032940,30943317.0,77,Traumatic pneumohemothorax without mention of open wound into thorax,2181-05-10 09:00:00,experimental,True,True,Both
+19165153,27547188,,26,Primary spontaneous pneumothorax,,experimental,True,False,Imaging_Only
+19214308,27999100,,27,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19373022,27669605,38854572.0,43,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19387467,26849561,30340897.0,84,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+19454724,23313194,34701874.0,36,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19542419,28268061,32150119.0,89,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19666969,25334580,33579674.0,18,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19708466,26617894,35074329.0,19,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19759048,22545990,30443629.0,41,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19766203,27284862,31930772.0,31,Spontaneous tension pneumothorax,,experimental,True,False,Imaging_Only
+19786382,20336912,36005533.0,26,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19792704,25185358,30990331.0,79,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19876293,27053236,30674560.0,91,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19920531,22567475,39423333.0,63,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+19937374,29175646,36709438.0,49,Traumatic pneumohemothorax without mention of open wound into thorax,2175-07-15 20:00:00,experimental,True,True,Both
+19992167,21791232,,50,Traumatic pneumohemothorax without mention of open wound into thorax,,experimental,True,False,Imaging_Only
+13279747,21262937,39638202.0,20,Spontaneous tension pneumothorax,2167-12-19 08:42:00,experimental,False,True,Procedure_Only
+13312191,29259216,33486704.0,43,Spontaneous tension pneumothorax,2128-02-06 21:57:00,experimental,False,True,Procedure_Only
+15305810,21444129,37969345.0,70,Traumatic pneumohemothorax without mention of open wound into thorax,2128-03-05 09:38:00,experimental,False,True,Procedure_Only
+15744689,23624507,31234815.0,64,Spontaneous tension pneumothorax,2129-05-30 05:33:00,experimental,False,True,Procedure_Only
