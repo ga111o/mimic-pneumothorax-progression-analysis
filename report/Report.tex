@@ -1,0 +1,139 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{seqsplit}
+\usepackage{kotex}
+
+\usepackage{fontspec}
+\setmainfont{Noto Serif CJK KR}
+
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\usepackage{float}
+
+\title{MIMIC-IV 기반 해석 가능한 머신러닝을 통한 외상성 중증 기흉 평가 논문 리뷰 및 재현}
+\author{2024404060 \\ 강민혁}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{서론}
+\subsection{선택한 논문의 기본 정보}
+
+본 보고서에서 다루는 논문의 제목은 \textbf{``A New Evaluation Model for Traumatic Severe Pneumothorax Based on Interpretable Machine Learning''}이다~\cite{li2024}. 저자는 Jing Li, Yinzhen Lv, Jiayi Weng, Wei Chen, He Huang, Yuzhuo Zhao로 구성되어 있으며, 본 논문은 2024년 \textit{International Journal of Computers Communications \& Control}에 게재되었다.
+
+위 논문은 XGBoost 등 머신러닝 기법들을 활용하여 MIMIC-IV 데이터셋을 기반으로 외상성 중증 기흉을 신속하고 해석 가능하게 평가하는 모델을 제안한 연구이다~\cite{li2024}.
+
+\subsection{선택 이유 및 연구 주제의 중요성}
+여기에 연구를 선택한 이유와 주제의 임상적/데이터 과학적 중요성을 기술한다.
+
+\section{기존 논문 리뷰}
+\subsection{연구 목적}
+논문이 예측 혹은 분석하려 한 구체적인 목표를 요약한다.
+
+\subsection{데이터 및 코호트 정의}
+MIMIC 데이터에서 사용된 포함/제외 기준, 환자 수, 주요 변수 등을 정리한다.
+
+\subsection{모델링 및 방법론}
+사용된 알고리즘 및 모델, 피처 엔지니어링 전략, 학습 절차 등을 기술한다.
+
+\subsection{평가 지표 및 주요 결과}
+결과 지표를 정리하고, 논문의 주요 성능을 표 형태로 제시한다.
+
+\begin{table}[H]
+\centering
+\caption{원 논문 주요 결과 요약}
+\begin{tabular}{lcccc}
+\toprule
+모델 & AUROC & AUPRC & F1 & Accuracy \\
+\midrule
+논문 제시 모델 &  &  &  &  \\
+비교 모델 1 &  &  &  &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{재현 방법}
+\subsection{코호트 구성 및 데이터 파이프라인}
+데이터 전처리, 필터링, 파이프라인 구성 단계를 설명한다.
+
+\subsection{사용한 모델 및 하이퍼파라미터}
+모델 구조, 학습률, 배치 크기 등 주요 하이퍼파라미터를 기술한다.
+
+\subsection{실행 환경}
+사용한 하드웨어 및 라이브러리 버전(예: Python, PyTorch, Scikit-learn, CUDA 등)을 명시한다.
+
+\section{실험 결과}
+\subsection{성능 지표 비교}
+원 논문과 재현 실험 간의 결과를 비교한다.
+
+\begin{table}[H]
+\centering
+\caption{성능 지표 비교 (원 논문 vs 재현 결과)}
+\begin{tabular}{lcccc}
+\toprule
+모델 & AUROC & AUPRC & F1 & Accuracy \\
+\midrule
+원 논문 결과 &  &  &  &  \\
+재현 결과 &  &  &  &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{시각화 결과}
+ROC curve, PR curve, confusion matrix 등의 시각자료를 삽입한다.
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.7\textwidth]{roc_curve.png}
+% \caption{ROC Curve 비교 (원 논문 vs 재현 결과)}
+% \end{figure}
+
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.7\textwidth]{pr_curve.png}
+% \caption{PR Curve 비교 (원 논문 vs 재현 결과)}
+% \end{figure}
+
+\section{논의 및 결론}
+\subsection{재현 성공/실패 요인 분석}
+결과가 일치하지 않았거나 차이가 발생한 원인을 데이터, 모델, 실행 환경 측면에서 분석한다.
+
+\subsection{데이터/모델/환경 차이 검토}
+원 논문과의 차이를 구체적으로 기술하고, 재현 결과에 미친 영향을 논의한다.
+
+\subsection{연구에 대한 비판적 시각 및 개선 방안}
+연구 설계 상의 한계점, 일반화 가능성, 향후 연구의 발전 방향을 제시한다.
+
+\newpage
+\begin{thebibliography}{9}
+
+\bibitem{li2024}
+Li, J., Lv, Y., Weng, J., Chen, W., Huang, H., \& Zhao, Y. (2024). 
+A new evaluation model for traumatic severe pneumothorax based on interpretable machine learning. 
+\textit{International Journal of Computers Communications \& Control, 19}(1), Article 6830. 
+\url{https://doi.org/10.15837/ijccc.2025.1.6830}
+
+\end{thebibliography}
+
+\end{document}
