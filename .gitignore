@@ -1,3 +1,5 @@
 data/raw/
 data/note/
 radiology.csv
+*.gz
+*.zip
