@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  21 NOV 2025 22:50
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  21 NOV 2025 22:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -9,8 +9,8 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
-(/usr/share/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+(/usr/share/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count192
 \c@section=\count193
@@ -601,12 +601,12 @@ Package fontspec Info:
 * \topmargin=-73.135pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=11.0pt
 * \footskip=30.0pt
-* \marginparwidth=35.0pt
+* \marginparwidth=50.0pt
 * \marginparsep=10.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -654,11 +654,11 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: BAD297619698F193B3F8F88AAE4F2817;2614.
  ) 
 Here is how much of TeX's memory you used:
- 21443 strings out of 475848
- 419511 string characters out of 5776012
- 824759 words of memory out of 5000000
- 44145 multiletter control sequences out of 15000+600000
- 566657 words of font info for 93 fonts, out of 8000000 for 9000
+ 21435 strings out of 475848
+ 419299 string characters out of 5776012
+ 827759 words of memory out of 5000000
+ 44139 multiletter control sequences out of 15000+600000
+ 565590 words of font info for 86 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,8n,121p,439b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
