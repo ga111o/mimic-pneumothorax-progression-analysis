@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.10.7)  9 NOV 2025 15:42
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  21 NOV 2025 22:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ga111o/documents/DA_Individual_Homework/report/Report
-(/home/ga111o/documents/DA_Individual_Homework/report/Report.tex
+**/home/ga111o/documents/mimic-pneumothorax-progression-analysis/report/Report
+(/home/ga111o/documents/mimic-pneumothorax-progression-analysis/report/Report.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/share/texmf-dist/tex/latex/base/article.cls
@@ -464,8 +464,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box76
 )
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 36.
-
-No file Report.aux.
+ (./Report.aux)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
@@ -489,7 +488,7 @@ LaTeX Font Info:    ... okay on input line 36.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
 \c@lstlisting=\count343
-(/usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+ (/usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 36.
@@ -591,15 +590,15 @@ Package fontspec Info:
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* h-part:(L,W,R)=(36.135pt, 525.23788pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 772.77686pt, 36.135pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-37.0pt
+* \textwidth=525.23788pt
+* \textheight=772.77686pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-73.135pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -618,14 +617,12 @@ Package fontspec Info:
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 36.
+(./Report.out) (./Report.out)
 \@outlinefile=\write3
 \openout3 = `Report.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
 LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
@@ -633,14 +630,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-LaTeX Warning: Citation `li2024' on page 1 undefined on input line 43.
-
-
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/it' undefined
 (Font)              using `TU/NotoSerifCJKKR(0)/m/n' instead on input line 43.
-
-
-LaTeX Warning: Citation `li2024' on page 1 undefined on input line 45.
 
 
 
@@ -650,9 +641,7 @@ LaTeX Warning: Citation `li2024' on page 1 undefined on input line 45.
 
 [2]
 
-[3]
-
-[4] (./Report.aux)
+[3] (./Report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -661,28 +650,16 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Report.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  BAD297619698F193B3F8F88AAE4F2817;2614.
+Package rerunfilecheck Info: File `Report.out' has not changed.
+(rerunfilecheck)             Checksum: BAD297619698F193B3F8F88AAE4F2817;2614.
  ) 
 Here is how much of TeX's memory you used:
- 21429 strings out of 475848
- 419291 string characters out of 5776013
- 820027 words of memory out of 5000000
- 44137 multiletter control sequences out of 15000+600000
+ 21443 strings out of 475848
+ 419511 string characters out of 5776012
+ 824759 words of memory out of 5000000
+ 44145 multiletter control sequences out of 15000+600000
  566657 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,8n,121p,422b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,8n,121p,439b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Report.pdf (4 pages).
+Output written on Report.pdf (3 pages).
