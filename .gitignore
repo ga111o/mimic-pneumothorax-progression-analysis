@@ -11,3 +11,5 @@ data/cxr/raw/
 src/data/
 __pycache__/
 .env
+logs/*.out
+logs/*.log
