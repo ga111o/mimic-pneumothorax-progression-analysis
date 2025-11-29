@@ -1,69 +1,56 @@
 import pandas as pd
 import numpy as np
-import re
-import os
-from datetime import datetime
 from pathlib import Path
 
 script_dir = Path(__file__).parent
 project_root = script_dir.parent.parent
 
 control_group = pd.read_csv(project_root / 'data' / 'interim' / 'control_group.csv')
-radiology = pd.read_csv(project_root / 'data' / 'note' / 'radiology.csv')
 
-PNEUMOTHORAX_KEYWORDS = [
-    'pneumothorax',
-    'ptx',
-    'hydropneumothorax',
-    'collapsed lung',
-    'pneumomediastinum',
-    'pleural air',
-    'air in pleural space',
-    'tension pneumothorax'
-]
+chexpert_df = pd.read_csv(project_root / 'data' / 'cxr' / 'mimic-cxr-chexpert' / 'mimic-cxr-2.0.0-chexpert.csv')
+negbio_df = pd.read_csv(project_root / 'data' / 'cxr' / 'mimic-cxr-negbio' / 'mimic-cxr-2.0.0-negbio.csv')
 
-NEGATIVE_PATTERNS = [
-    r'no\s+pneumothorax',
-    r'without\s+pneumothorax',
-    r'rule\s+out\s+pneumothorax',
-    r'r/o\s+pneumothorax',
-    r'negative\s+for\s+pneumothorax',
-    r'pneumothorax\s+is\s+not',
-    r'not\s+consistent\s+with\s+pneumothorax',
-    r'no\s+evidence\s+of\s+pneumothorax',
-    r'no\s+ptx'
-]
+def get_pneumothorax_positive_subjects(df, source_name):
+    # 1.0 = 존재
+    # -1.0 = 불확실,
+    # 0.0 = 확실하게 x,
+    # NaN = 언급되지 않음
+    ptx_positive = df[
+        (df['Pneumothorax'] == 1.0) | (df['Pneumothorax'] == -1.0)
+    ]['subject_id'].unique()
+    
+    print(f"[{source_name}] Found {len(ptx_positive)} subjects with Pneumothorax = 1.0 or -1.0")
+    
+    return set(ptx_positive)
 
-def has_pneumothorax_finding(text):
-    if pd.isna(text):
-        return False
-    
-    text = str(text).lower()
-    
-    keyword_found = any(keyword in text for keyword in PNEUMOTHORAX_KEYWORDS)
-    
-    if not keyword_found:
-        return False
-    
-    for pattern in NEGATIVE_PATTERNS:
-        if re.search(pattern, text, re.IGNORECASE):
-            return False
-    
-    return True
+chexpert_ptx_subjects = get_pneumothorax_positive_subjects(chexpert_df, 'CheXpert')
+negbio_ptx_subjects = get_pneumothorax_positive_subjects(negbio_df, 'NegBio')
 
-if 'text' in radiology.columns:
-    radiology['has_ptx'] = radiology['text'].apply(has_pneumothorax_finding)
-    ptx_hadm_ids = radiology[radiology['has_ptx'] == True]['hadm_id'].unique()
-else:
-    ptx_hadm_ids = []
+# CheXpert 또는 NegBio에서 양성/불확실 기흉이 있는 경우
+subjects_to_exclude = chexpert_ptx_subjects | negbio_ptx_subjects
+print(f"\nlen(subjects_to_exclude): {len(subjects_to_exclude)}")
+
+# CheXpert만 존재
+only_chexpert = chexpert_ptx_subjects - negbio_ptx_subjects
+print(f"len(only_chexpert): {len(only_chexpert)}")
+
+# NegBio만 존재
+only_negbio = negbio_ptx_subjects - chexpert_ptx_subjects
+print(f"len(only_negbio): {len(only_negbio)}")
+
+# 둘 다 존재
+in_both = chexpert_ptx_subjects & negbio_ptx_subjects
+print(f"len(in_both): {len(in_both)}")
 
 initial_count = len(control_group)
+print(f"\nlen(control_group): {initial_count}")
 
-final_control_group = control_group[~control_group['hadm_id'].isin(ptx_hadm_ids)].copy()
+final_control_group = control_group[~control_group['subject_id'].isin(subjects_to_exclude)].copy()
 
 excluded_count = initial_count - len(final_control_group)
-
-difference = abs(len(final_control_group) - 3697)
+print(f"len(final_control_group): {len(final_control_group)}")
+print(f"excluded_count: {excluded_count}")
 
 output_filename = project_root / 'data' / 'processed' / 'final_control_group.csv'
 final_control_group.to_csv(output_filename, index=False)
+print(f"{output_filename}")
