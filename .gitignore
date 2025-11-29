@@ -8,3 +8,6 @@ data/cxr/mimic-cxr-chexpert/
 data/cxr/mimic-cxr-negbio/
 data/cxr/mimic-cxr-reports/
 data/cxr/raw/ 
+src/data/
+__pycache__/
+.env
