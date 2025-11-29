@@ -11,9 +11,15 @@ Best Hyperparameters:
   subsample: 0.8
 
 5-Fold Cross Validation Results:
-  AUROC:    0.9098 ± 0.0380
-  Accuracy: 0.8847 ± 0.0156
-  Recall:   0.4417 ± 0.0816
+  AUROC:       0.9098 ± 0.0380
+  AUPRC:       0.7636 ± 0.0660
+  Accuracy:    0.8847 ± 0.0156
+  F1 Score:    0.5572 ± 0.0762
+  Precision:   0.7786 ± 0.0825
+  Recall:      0.4417 ± 0.0816
+  Sensitivity: 0.4417 ± 0.0816
+  PPV:         0.7786 ± 0.0825
+  NPV:         0.8973 ± 0.0128
 
 Top Features (by SHAP):
   hemoglobin: 0.5002
