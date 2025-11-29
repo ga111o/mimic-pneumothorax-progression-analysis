@@ -3,7 +3,7 @@ XGBoost Classification for Pneumothorax Progression Prediction
 
 - GPU-accelerated training (RTX 3080)
 - Grid Search with 5-fold Cross Validation
-- Evaluation: AUROC, Accuracy, Recall
+- Evaluation: Accuracy, F1, Precision, Recall/Sensitivity, AUROC, AUPRC, NPV, PPV
 - XAI: SHAP
 """
 
@@ -19,9 +19,11 @@ from sklearn.model_selection import StratifiedKFold, GridSearchCV
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import (
     roc_auc_score,
+    average_precision_score,
     accuracy_score,
+    f1_score,
+    precision_score,
     recall_score,
-    classification_report,
     confusion_matrix,
     roc_curve,
 )
@@ -154,8 +156,14 @@ def evaluate_with_cv(X, y, best_params):
 
     # Metrics storage
     auroc_scores = []
+    auprc_scores = []
     accuracy_scores = []
+    precision_scores = []
     recall_scores = []
+    f1_scores = []
+    sensitivity_scores = []
+    npv_scores = []
+    ppv_scores = []
 
     # For final ROC curve
     all_y_true = []
@@ -190,12 +198,27 @@ def evaluate_with_cv(X, y, best_params):
 
         # Calculate metrics
         auroc = roc_auc_score(y_val, y_prob)
+        auprc = average_precision_score(y_val, y_prob)
         accuracy = accuracy_score(y_val, y_pred)
-        recall = recall_score(y_val, y_pred)
+        precision = precision_score(y_val, y_pred, zero_division=0)
+        recall = recall_score(y_val, y_pred, zero_division=0)
+        f1 = f1_score(y_val, y_pred, zero_division=0)
+        sensitivity = recall  # alias for clarity in reports
+        tn, fp, fn, tp = confusion_matrix(
+            y_val, y_pred, labels=[0, 1]
+        ).ravel()
+        npv = tn / (tn + fn) if (tn + fn) else np.nan
+        ppv = tp / (tp + fp) if (tp + fp) else np.nan
 
         auroc_scores.append(auroc)
+        auprc_scores.append(auprc)
         accuracy_scores.append(accuracy)
+        precision_scores.append(precision)
         recall_scores.append(recall)
+        f1_scores.append(f1)
+        sensitivity_scores.append(sensitivity)
+        npv_scores.append(npv)
+        ppv_scores.append(ppv)
 
         all_y_true.extend(y_val)
         all_y_prob.extend(y_prob)
@@ -204,13 +227,23 @@ def evaluate_with_cv(X, y, best_params):
             {
                 "fold": fold,
                 "auroc": auroc,
+                "auprc": auprc,
                 "accuracy": accuracy,
+                "precision": precision,
                 "recall": recall,
+                "f1": f1,
+                "sensitivity": sensitivity,
+                "npv": npv,
+                "ppv": ppv,
             }
         )
 
         print(
-            f"Fold {fold}: AUROC={auroc:.4f}, Accuracy={accuracy:.4f}, Recall={recall:.4f}"
+            (
+                f"Fold {fold}: AUROC={auroc:.4f}, AUPRC={auprc:.4f}, Accuracy={accuracy:.4f}, "
+                f"F1={f1:.4f}, Precision={precision:.4f}, Recall={recall:.4f}, "
+                f"Sensitivity={sensitivity:.4f}, PPV={ppv:.4f}, NPV={npv:.4f}"
+            )
         )
 
     # Summary statistics
@@ -218,16 +251,36 @@ def evaluate_with_cv(X, y, best_params):
     print("Cross-Validation Summary")
     print("-" * 60)
     print(f"AUROC:    {np.mean(auroc_scores):.4f} ± {np.std(auroc_scores):.4f}")
+    print(f"AUPRC:    {np.mean(auprc_scores):.4f} ± {np.std(auprc_scores):.4f}")
     print(f"Accuracy: {np.mean(accuracy_scores):.4f} ± {np.std(accuracy_scores):.4f}")
+    print(f"F1:       {np.mean(f1_scores):.4f} ± {np.std(f1_scores):.4f}")
+    print(f"Precision:{np.mean(precision_scores):.4f} ± {np.std(precision_scores):.4f}")
     print(f"Recall:   {np.mean(recall_scores):.4f} ± {np.std(recall_scores):.4f}")
+    print(
+        f"Sensitivity: {np.mean(sensitivity_scores):.4f} ± {np.std(sensitivity_scores):.4f}"
+    )
+    print(f"PPV:      {np.nanmean(ppv_scores):.4f} ± {np.nanstd(ppv_scores):.4f}")
+    print(f"NPV:      {np.nanmean(npv_scores):.4f} ± {np.nanstd(npv_scores):.4f}")
 
     cv_results = {
         "auroc_mean": np.mean(auroc_scores),
         "auroc_std": np.std(auroc_scores),
+        "auprc_mean": np.mean(auprc_scores),
+        "auprc_std": np.std(auprc_scores),
         "accuracy_mean": np.mean(accuracy_scores),
         "accuracy_std": np.std(accuracy_scores),
+        "f1_mean": np.mean(f1_scores),
+        "f1_std": np.std(f1_scores),
+        "precision_mean": np.mean(precision_scores),
+        "precision_std": np.std(precision_scores),
         "recall_mean": np.mean(recall_scores),
         "recall_std": np.std(recall_scores),
+        "sensitivity_mean": np.mean(sensitivity_scores),
+        "sensitivity_std": np.std(sensitivity_scores),
+        "ppv_mean": np.nanmean(ppv_scores),
+        "ppv_std": np.nanstd(ppv_scores),
+        "npv_mean": np.nanmean(npv_scores),
+        "npv_std": np.nanstd(npv_scores),
         "fold_results": fold_results,
         "all_y_true": np.array(all_y_true),
         "all_y_prob": np.array(all_y_prob),
@@ -360,7 +413,7 @@ def plot_roc_curve(cv_results):
     fpr, tpr, _ = roc_curve(y_true, y_prob)
     auroc = roc_auc_score(y_true, y_prob)
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(12, 6))
     plt.plot(fpr, tpr, color="darkorange", lw=2, label=f"ROC curve (AUC = {auroc:.4f})")
     plt.plot([0, 1], [0, 1], color="navy", lw=2, linestyle="--")
     plt.xlim([0.0, 1.0])
@@ -378,30 +431,46 @@ def plot_roc_curve(cv_results):
 
 def plot_cv_metrics(cv_results):
     """Plot CV metrics as bar chart."""
-    metrics = ["AUROC", "Accuracy", "Recall"]
-    means = [
-        cv_results["auroc_mean"],
-        cv_results["accuracy_mean"],
-        cv_results["recall_mean"],
-    ]
-    stds = [
-        cv_results["auroc_std"],
-        cv_results["accuracy_std"],
-        cv_results["recall_std"],
+    metrics = [
+        ("AUROC", cv_results["auroc_mean"], cv_results["auroc_std"]),
+        ("AUPRC", cv_results["auprc_mean"], cv_results["auprc_std"]),
+        ("Accuracy", cv_results["accuracy_mean"], cv_results["accuracy_std"]),
+        ("F1", cv_results["f1_mean"], cv_results["f1_std"]),
+        ("Precision", cv_results["precision_mean"], cv_results["precision_std"]),
+        ("Recall", cv_results["recall_mean"], cv_results["recall_std"]),
+        ("Sensitivity", cv_results["sensitivity_mean"], cv_results["sensitivity_std"]),
+        ("PPV", cv_results["ppv_mean"], cv_results["ppv_std"]),
+        ("NPV", cv_results["npv_mean"], cv_results["npv_std"]),
     ]
 
+    metric_names = [m[0] for m in metrics]
+    means = [m[1] for m in metrics]
+    stds = [m[2] for m in metrics]
+
     plt.figure(figsize=(8, 6))
-    bars = plt.bar(metrics, means, yerr=stds, capsize=5, color=["#2ecc71", "#3498db", "#e74c3c"], edgecolor="black")
+    colors = sns.color_palette("tab10", len(metric_names))
+    bars = plt.bar(
+        metric_names,
+        means,
+        yerr=stds,
+        capsize=5,
+        color=colors,
+        edgecolor="black",
+    )
     plt.ylim([0, 1.1])
     plt.ylabel("Score", fontsize=12)
     plt.title("5-Fold Cross Validation Results", fontsize=14, fontweight="bold")
+    plt.xticks(rotation=30, ha="right")
 
     # Add value labels on bars
     for bar, mean, std in zip(bars, means, stds):
+        std_safe = 0 if np.isnan(std) else std
+        mean_label = "nan" if np.isnan(mean) else f"{mean:.4f}"
+        std_label = "nan" if np.isnan(std) else f"{std:.4f}"
         plt.text(
             bar.get_x() + bar.get_width() / 2,
-            bar.get_height() + std + 0.02,
-            f"{mean:.4f}±{std:.4f}",
+            bar.get_height() + std_safe + 0.02,
+            f"{mean_label}±{std_label}",
             ha="center",
             va="bottom",
             fontsize=10,
@@ -457,10 +526,22 @@ def save_results(grid_search, cv_results, model, shap_importance_df):
         "best_cv_auroc": grid_search.best_score_,
         "auroc_mean": cv_results["auroc_mean"],
         "auroc_std": cv_results["auroc_std"],
+        "auprc_mean": cv_results["auprc_mean"],
+        "auprc_std": cv_results["auprc_std"],
         "accuracy_mean": cv_results["accuracy_mean"],
         "accuracy_std": cv_results["accuracy_std"],
+        "f1_mean": cv_results["f1_mean"],
+        "f1_std": cv_results["f1_std"],
+        "precision_mean": cv_results["precision_mean"],
+        "precision_std": cv_results["precision_std"],
         "recall_mean": cv_results["recall_mean"],
         "recall_std": cv_results["recall_std"],
+        "sensitivity_mean": cv_results["sensitivity_mean"],
+        "sensitivity_std": cv_results["sensitivity_std"],
+        "ppv_mean": cv_results["ppv_mean"],
+        "ppv_std": cv_results["ppv_std"],
+        "npv_mean": cv_results["npv_mean"],
+        "npv_std": cv_results["npv_std"],
     }
 
     with open(OUTPUT_PATH / "results_summary.pkl", "wb") as f:
@@ -475,9 +556,15 @@ def save_results(grid_search, cv_results, model, shap_importance_df):
         for k, v in grid_search.best_params_.items():
             f.write(f"  {k}: {v}\n")
         f.write(f"\n5-Fold Cross Validation Results:\n")
-        f.write(f"  AUROC:    {cv_results['auroc_mean']:.4f} ± {cv_results['auroc_std']:.4f}\n")
-        f.write(f"  Accuracy: {cv_results['accuracy_mean']:.4f} ± {cv_results['accuracy_std']:.4f}\n")
-        f.write(f"  Recall:   {cv_results['recall_mean']:.4f} ± {cv_results['recall_std']:.4f}\n")
+        f.write(f"  AUROC:       {cv_results['auroc_mean']:.4f} ± {cv_results['auroc_std']:.4f}\n")
+        f.write(f"  AUPRC:       {cv_results['auprc_mean']:.4f} ± {cv_results['auprc_std']:.4f}\n")
+        f.write(f"  Accuracy:    {cv_results['accuracy_mean']:.4f} ± {cv_results['accuracy_std']:.4f}\n")
+        f.write(f"  F1 Score:    {cv_results['f1_mean']:.4f} ± {cv_results['f1_std']:.4f}\n")
+        f.write(f"  Precision:   {cv_results['precision_mean']:.4f} ± {cv_results['precision_std']:.4f}\n")
+        f.write(f"  Recall:      {cv_results['recall_mean']:.4f} ± {cv_results['recall_std']:.4f}\n")
+        f.write(f"  Sensitivity: {cv_results['sensitivity_mean']:.4f} ± {cv_results['sensitivity_std']:.4f}\n")
+        f.write(f"  PPV:         {cv_results['ppv_mean']:.4f} ± {cv_results['ppv_std']:.4f}\n")
+        f.write(f"  NPV:         {cv_results['npv_mean']:.4f} ± {cv_results['npv_std']:.4f}\n")
         f.write(f"\nTop Features (by SHAP):\n")
         for _, row in shap_importance_df.head(10).iterrows():
             f.write(f"  {row['feature']}: {row['mean_shap_value']:.4f}\n")
