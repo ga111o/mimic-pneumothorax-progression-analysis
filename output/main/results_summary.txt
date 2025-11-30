@@ -1,0 +1,63 @@
+======================================================================
+RECALL-OPTIMIZED PNEUMOTHORAX PREDICTION - RESULTS SUMMARY
+======================================================================
+
+OPTIMIZATION STRATEGY
+--------------------------------------------------
+Objective: AUROC + 0.5 × Recall
+scale_pos_weight multiplier: 2.0
+Min recall target: 0.45
+Min accuracy target: 0.85
+
+BEST HYPERPARAMETERS
+--------------------------------------------------
+  n_estimators: 327
+  max_depth: 10
+  learning_rate: 0.011712393993437984
+  subsample: 0.9587148865535015
+  colsample_bytree: 0.6268458059914104
+  min_child_weight: 2
+  gamma: 0.00956226597287767
+  reg_alpha: 0.0028852763202773966
+  reg_lambda: 3.221402503051839e-08
+
+
+OPTIMAL THRESHOLD: 0.650
+
+CROSS-VALIDATION RESULTS (Optimized Threshold)
+--------------------------------------------------
+  AUROC: 0.9044 ± 0.0398
+  AUPRC: 0.7039 ± 0.0953
+  ACCURACY: 0.8833 ± 0.0338
+  F1: 0.6683 ± 0.0832
+  PRECISION: 0.6500 ± 0.1160
+  RECALL: 0.7000 ± 0.0995
+  SPECIFICITY: 0.9200 ± 0.0375
+  PPV: 0.6500 ± 0.1160
+  NPV: 0.9391 ± 0.0190
+
+
+COMPARISON WITH BASELINE
+--------------------------------------------------
+Metric             Current   Baseline       Diff   Status
+-----------------------------------------------------
+AUROC               0.9044     0.9100    -0.0056        ✗
+AUPRC               0.7039     0.7640    -0.0601        ✗
+ACCURACY            0.8833     0.8850    -0.0017        ✗
+F1                  0.6683     0.5570    +0.1113        ✓
+PRECISION           0.6500     0.7790    -0.1290        ✗
+RECALL              0.7000     0.4420    +0.2580        ✓
+
+
+TOP 10 FEATURES (SHAP)
+--------------------------------------------------
+  hemoglobin: 0.6277
+  map: 0.4465
+  pao2: 0.4036
+  lactate: 0.3947
+  spo2: 0.3793
+  oxygenation_index: 0.3506
+  fio2: 0.3498
+  base_excess: 0.3322
+  sbp: 0.3013
+  heart_rate: 0.2418

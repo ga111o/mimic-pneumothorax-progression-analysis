@@ -1,0 +1,46 @@
+======================================================================
+IMPROVED PNEUMOTHORAX PREDICTION - RESULTS SUMMARY
+======================================================================
+
+Data file: cohort_features_downsampled.csv
+Subject-disjoint CV: True
+Temporal holdout: False
+
+CROSS-VALIDATION RESULTS
+--------------------------------------------------
+  auroc_mean: 0.8790
+  auroc_std: 0.0417
+  auprc_mean: 0.6686
+  auprc_std: 0.0591
+  accuracy_mean: 0.8540
+  accuracy_std: 0.0400
+  f1_mean: 0.5799
+  f1_std: 0.0489
+  precision_mean: 0.5763
+  precision_std: 0.1028
+  recall_mean: 0.5962
+  recall_std: 0.0507
+  sensitivity_mean: 0.5962
+  sensitivity_std: 0.0507
+  specificity_mean: 0.9043
+  specificity_std: 0.0541
+  ppv_mean: 0.5763
+  ppv_std: 0.1028
+  npv_mean: 0.9187
+  npv_std: 0.0055
+  brier_mean: 0.1133
+  brier_std: 0.0456
+
+
+TOP 10 FEATURES (SHAP)
+--------------------------------------------------
+  hemoglobin: 0.2222
+  pao2: 0.2041
+  map: 0.1845
+  base_excess: 0.1497
+  lactate: 0.1481
+  oxygenation_index: 0.1070
+  fio2: 0.0991
+  pco2: 0.0875
+  heart_rate: 0.0775
+  spo2: 0.0720

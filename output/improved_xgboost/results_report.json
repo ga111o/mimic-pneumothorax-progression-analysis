@@ -1,0 +1,47 @@
+{
+  "cv_summary": {
+    "auroc_mean": 0.8789757337312892,
+    "auroc_std": 0.04165570491270739,
+    "auprc_mean": 0.6685522058147013,
+    "auprc_std": 0.059054145397370625,
+    "accuracy_mean": 0.8539911659467908,
+    "accuracy_std": 0.039978572217883895,
+    "f1_mean": 0.5798809659621877,
+    "f1_std": 0.0488729853815137,
+    "precision_mean": 0.5762808404410236,
+    "precision_std": 0.10280854829260985,
+    "recall_mean": 0.5961640211640212,
+    "recall_std": 0.05070556322358857,
+    "sensitivity_mean": 0.5961640211640212,
+    "sensitivity_std": 0.05070556322358857,
+    "specificity_mean": 0.9042765694076038,
+    "specificity_std": 0.05407609404218848,
+    "ppv_mean": 0.5762808404410236,
+    "ppv_std": 0.10280854829260985,
+    "npv_mean": 0.9186761878256483,
+    "npv_std": 0.0055050971513323135,
+    "brier_mean": 0.11325796274947937,
+    "brier_std": 0.04560513844025042
+  },
+  "cv_oof_metrics": {
+    "oof_auroc": 0.8550416666666667,
+    "oof_auprc": 0.6206386255927483,
+    "oof_accuracy": 0.8541666666666666,
+    "oof_precision": 0.5581395348837209,
+    "oof_recall": 0.6,
+    "oof_f1": 0.5783132530120482,
+    "oof_sensitivity": 0.6,
+    "oof_specificity": 0.905,
+    "oof_ppv": 0.5581395348837209,
+    "oof_npv": 0.9187817258883249,
+    "oof_brier": 0.11308172058416056
+  },
+  "config": {
+    "data_file": "cohort_features_downsampled.csv",
+    "n_outer_folds": 5,
+    "n_inner_folds": 3,
+    "n_optuna_trials": 100,
+    "use_group_cv": true,
+    "use_temporal_holdout": false
+  }
+}

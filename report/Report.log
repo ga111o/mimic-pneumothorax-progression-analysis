@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  30 NOV 2025 18:24
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.13)  30 NOV 2025 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ga111o/documents/mimic-pneumothorax-progression-analysis/report/Report
-(/home/ga111o/documents/mimic-pneumothorax-progression-analysis/report/Report.tex
+**/home/ga111o/document/mimic-pneumothorax-progression-analysis/report/Report
+(/home/ga111o/document/mimic-pneumothorax-progression-analysis/report/Report.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/share/texmf-dist/tex/latex/base/article.cls
@@ -653,84 +653,4 @@ Package caption Info: End \AtBeginDocument code.
 * \footskip=30.0pt
 * \marginparwidth=50.0pt
 * \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-Package hyperref Info: Link coloring ON on input line 43.
-(./Report.out) (./Report.out)
-\@outlinefile=\write3
-\openout3 = `Report.out'.
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/it' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/n' instead on input line 50.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-[]|\TU/NotoSerifCJKKR(0)/m/n/10 Peripheral oxygen saturation; percentage of oxygen-bound
- []
-
-
-
-[1
-
-]
-File: figures/original_results.png Graphic file (type bmp)
-<figures/original_results.png>
-
-
-[2]
-
-[3]
-
-[4]
-
-[5]
-File: figures/chest_pa_comparison.png Graphic file (type bmp)
-<figures/chest_pa_comparison.png>
-
-
-[6]
-
-[7]
-
-[8] (./Report.bbl)
-
-[9] (./Report.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 507E773150F555EB4E979EDE1B506BC4;3901.
- ) 
-Here is how much of TeX's memory you used:
- 23389 strings out of 475848
- 454399 string characters out of 5776012
- 905465 words of memory out of 5000000
- 46052 multiletter control sequences out of 15000+600000
- 568882 words of font info for 106 fonts, out of 8000000 for 9000
- 14 hyphenation exceptions out of 8191
- 108i,17n,121p,748b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-Output written on Report.pdf (9 pages).
+* \co

@@ -83,6 +83,62 @@
   \end{tabular}
 \end{table}
 
-\end{document}
+\section{수식 정의}
 
-\section
+\subsection{산소화 지수 (Oxygenation Index)}
+주요 예측 인자인 Oxygenation Index의 산출 공식은 다음과 같다.
+\begin{equation}
+    \text{Oxygenation Index} = \frac{\text{FiO}_2 \times \text{MAP}}{\text{PaO}_2} \times 100
+    \label{eq:oi}
+\end{equation}
+
+\subsection{복합 목적 함수 (Composite Objective Function)}
+하이퍼파라미터 최적화를 위해 AUROC에 재현율 가중치를 결합한 목적 함수를 다음과 같이 구성하였다.
+\begin{equation}
+    \text{Score} = \text{AUROC} + \alpha \times \text{Recall}
+    \label{eq:composite_objective}
+\end{equation}
+
+\subsection{제약 조건 기반 임계값 최적화}
+모델의 최종 예측 단계에서 임상적 안전성을 보장하기 위한 제약 조건은 다음과 같다.
+\begin{equation}
+    \text{Recall}(t) \ge 0.45 \label{eq:recall_constraint}
+\end{equation}
+\begin{equation}
+    \text{Accuracy}(t) \ge 0.85 \label{eq:accuracy_constraint}
+\end{equation}
+
+\section{예측 모델에 사용된 변수 정의}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Definitions of the 12 Key Variables Selected for the Predictive Model}
+  \vspace{-0.5em}
+  \label{tab:selected_variables}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{l l X}
+    \toprule
+    \textbf{Variable} & \textbf{Unit} & \textbf{Description} \\
+    \midrule
+    pH & - & Indicator of the acid-base status of the blood \\
+    Hemoglobin & g/dL & Protein concentration reflecting the oxygen-carrying capacity of the blood \\
+    PaO$_2$ & mmHg & Partial pressure of arterial oxygen; reflects dissolved oxygen tension \\
+    Lactate & mmol/L & Marker of tissue hypoxia and anaerobic metabolism \\
+    Oxygenation Index & - & Calculated index assessing the severity of respiratory failure \\
+    SpO$_2$ & \% & Peripheral oxygen saturation; percentage of oxygen-bound hemoglobin \\
+    Base Excess & mEq/L & Measure of metabolic acid-base status, independent of respiratory factors \\
+    Heart Rate & bpm & Number of heartbeats per minute \\
+    PaCO$_2$ & mmHg & Partial pressure of arterial carbon dioxide; indicator of alveolar ventilation \\
+    Systolic BP & mmHg & Arterial blood pressure during ventricular contraction \\
+    Diastolic BP & mmHg & Arterial blood pressure during ventricular relaxation \\
+    Respiratory Rate & breaths/min & Number of breaths per minute \\
+    \bottomrule
+  \end{tabularx}
+  \footnotesize
+  \scriptsize
+  \vspace{0.5em}
+  \textit{Note: PaO$_2$, partial pressure of oxygen; SpO$_2$, peripheral oxygen saturation; PaCO$_2$, partial pressure of carbon dioxide; BP, blood pressure.}
+\end{table}
+
+\end{document}

@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  30 NOV 2025 18:20
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.13)  30 NOV 2025 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/ga111o/documents/mimic-pneumothorax-progression-analysis/report/Appendix
-(/home/ga111o/documents/mimic-pneumothorax-progression-analysis/report/Appendix.tex
+**/home/ga111o/document/mimic-pneumothorax-progression-analysis/report/Appendix
+(/home/ga111o/document/mimic-pneumothorax-progression-analysis/report/Appendix.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/share/texmf-dist/tex/latex/base/article.cls
@@ -674,22 +674,44 @@ File: figures/chest_pa_with_visualization.png Graphic file (type bmp)
 [1
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+[]|\TU/NotoSerifCJKKR(0)/m/n/10 Peripheral oxygen saturation; percentage of oxygen-bound
+ []
+
+
+LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/it' undefined
+(Font)              using `TU/NotoSerifCJKKR(0)/m/n' instead on input line 141.
+
+
 
 [2] (./Appendix.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `Appendix.out' has not changed.
-(rerunfilecheck)             Checksum: 950778D83E8EFAF1515764952FBBC322;222.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Appendix.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Appendix.out':
+(rerunfilecheck)             Before: 80ABE5763014C95D95510B3ECCEF7D75;393
+(rerunfilecheck)             After:  4929A047E5DA4295DBECEBD722681C2E;1169.
  ) 
 Here is how much of TeX's memory you used:
- 23003 strings out of 475848
- 448565 string characters out of 5776012
- 838008 words of memory out of 5000000
- 45691 multiletter control sequences out of 15000+600000
- 565574 words of font info for 84 fonts, out of 8000000 for 9000
+ 23035 strings out of 475848
+ 449469 string characters out of 5776012
+ 845106 words of memory out of 5000000
+ 45715 multiletter control sequences out of 15000+600000
+ 567321 words of font info for 98 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,8n,121p,361b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,10n,121p,360b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Appendix.pdf (2 pages).

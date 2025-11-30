@@ -1,0 +1,15 @@
+feature,mean_shap
+hemoglobin,0.22222044
+pao2,0.20407645
+map,0.18454054
+base_excess,0.14974764
+lactate,0.14811754
+oxygenation_index,0.10697801
+fio2,0.09911841
+pco2,0.08751755
+heart_rate,0.07754955
+spo2,0.071987994
+sbp,0.065606646
+dbp,0.048109353
+ph,0.021059653
+resp_rate,0.009483261

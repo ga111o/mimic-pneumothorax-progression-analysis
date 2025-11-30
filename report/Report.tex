@@ -63,38 +63,7 @@
 
 코호트는 외상성 중증 기흉 환자로 구성된 실험군과 비외상성 비기흉 환자로 구성된 대조군으로 분류하였다. 실험군은 외상으로 입원한 환자 중 CXR에서 대형 기흉(흉벽에서 폐 외연까지 2cm 이상 등)이 확인되었거나 흉강 천자, 흉관 삽입술 등 기흉 치료를 받은 환자 174명으로 정의하였다. 대조군은 외상 및 기흉 소견이 없고 폐 관련 수술 이력이 없으며 생존 퇴원한 환자 3,697명이 포함되었다. 이때, 데이터 불균형 문제를 해소하기 위해 대조군에 대해 1:5 비율의 다운샘플링을 적용하였다.
 
-예측 모델 구축을 위한 변수로는 활력 징후와 혈액 가스 분석 지표 33개를 1차적으로 추출하였다. 이 중 임상적 중요도와 결측률(50\% 미만 기준)을 고려하여 최종적으로 Table~\ref{tab:selected_variables}와 같은 12개의 핵심 변수를 선별하였다. 선별된 데이터의 결측치는 다중 대체법을 적용하여 보정하였다.
-
-\begin{table}[htbp]
-  \centering
-  \small
-  \caption{Definitions of the 12 Key Variables Selected for the Predictive Model}
-  \vspace{-0.5em}
-  \label{tab:selected_variables}
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabularx}{\textwidth}{l l X}
-    \toprule
-    \textbf{Variable} & \textbf{Unit} & \textbf{Description} \\
-    \midrule
-    pH & - & Indicator of the acid-base status of the blood \\
-    Hemoglobin & g/dL & Protein concentration reflecting the oxygen-carrying capacity of the blood \\
-    PaO$_2$ & mmHg & Partial pressure of arterial oxygen; reflects dissolved oxygen tension \\
-    Lactate & mmol/L & Marker of tissue hypoxia and anaerobic metabolism \\
-    Oxygenation Index & - & Calculated index assessing the severity of respiratory failure \\
-    SpO$_2$ & \% & Peripheral oxygen saturation; percentage of oxygen-bound hemoglobin \\
-    Base Excess & mEq/L & Measure of metabolic acid-base status, independent of respiratory factors \\
-    Heart Rate & bpm & Number of heartbeats per minute \\
-    PaCO$_2$ & mmHg & Partial pressure of arterial carbon dioxide; indicator of alveolar ventilation \\
-    Systolic BP & mmHg & Arterial blood pressure during ventricular contraction \\
-    Diastolic BP & mmHg & Arterial blood pressure during ventricular relaxation \\
-    Respiratory Rate & breaths/min & Number of breaths per minute \\
-    \bottomrule
-  \end{tabularx}
-  \footnotesize
-  \scriptsize
-  \vspace{0.5em}
-  \textit{Note: PaO$_2$, partial pressure of oxygen; SpO$_2$, peripheral oxygen saturation; PaCO$_2$, partial pressure of carbon dioxide; BP, blood pressure.}
-\end{table}
+예측 모델 구축을 위한 변수로는 활력 징후와 혈액 가스 분석 지표 33개를 1차적으로 추출하였다. 이 중 임상적 중요도와 결측률(50\% 미만 기준)을 고려하여 최종적으로 pH, Hemoglobin, PaO$_2$, Lactate, Oxygenation Index, SpO$_2$, Base Excess, Heart Rate, PaCO$_2$, Systolic BP, Diastolic BP, Respiratory Rate의 12개 핵심 변수를 선별하였다. 각 변수의 상세 정의는 Appendix ``예측 모델에 사용된 변수 정의'' 절에 수록하였다. 선별된 데이터의 결측치는 다중 대체법을 적용하여 보정하였다.
 
 \subsection{기존 연구 결과}
 기존 연구 결과, Figure~\ref{fig:original_results}의 좌측 표와 같이 4가지 기계학습 알고리즘 중 XGBoost가 가장 우수한 진단 성능을 보였다. MIMIC-IV 데이터셋을 기반으로 한 내부 검증에서 XGBoost는 AUROC 0.979 (95\% CI: 0.966-0.989), 정확도 0.947, 재현율 0.730을 기록하며 ANN, SVM, KNN 등 타 모델을 전반적으로 상회하는 성능을 입증하였다. 또한, EICU 데이터셋을 활용한 외부 검증에서도 타 모델들과 다르게 XGBoost는 AUROC 0.806을 기록하며 데이터셋 변화에 대해서도 상대적으로 강건한 일반화 성능을 유지하였다.
@@ -142,11 +111,7 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
 임상 변수 추출을 위한 시간 윈도우는 실험군과 대조군에 대해 차등적으로 설정하였다. 실험군의 경우 기흉 관련 시술 시간을 기준 시점으로 하되, 시술 시간이 기록되지 않은 경우 ICU 입실 시간, 그것도 없는 경우 입원 시간을 순차적으로 적용하여 기준 시점으로부터 1시간 이전까지의 데이터를 수집하였다. 대조군의 경우에는 퇴원 시간을 기준으로 24시간 이전까지의 데이터를 수집하였다. 이러한 설정을 통해 실험군에서는 급성 기흉 발생 직전의 임상 상태를, 대조군에서는 안정적인 퇴원 전 상태를 반영하고자 하였다.
 
 \subsection{데이터 전처리 파이프라인}
-본 재현 연구에서는 원 논문에서 최종 선별된 12개 변수의 유효성을 검증하고, 데이터 추출 과정의 완결성을 높이기 위해 초기 후보 변수군을 확장하였다. 원 논문의 12개 변수에 FiO$_2$와 MAP를 추가하여 pH, Hemoglobin, PaO$_2$, Lactate, SpO$_2$, Base Excess, Heart Rate, PaCO$_2$, DBP, SBP, Respiratory Rate, FiO$_2$, MAP, Oxygenation Index, 총 14개의 변수를 수집하였다. 주요 예측 인자인 Oxygenation Index의 정확한 산출을 위해서 초기 변수 목록을 확장하였다. MIMIC-IV 데이터베이스 특성상 Oxygenation Index가 직접 기록되지 않은 레코드가 존재할 수 있으며, 이 경우 아래의 식~\ref{eq:oi}을 통해 결측치를 보완하거나 값을 검증해야 하기에 구성 요소인 FiO$_2$와 MAP의 수집이 필수적이었다.
-\begin{equation}
-    \text{Oxygenation Index} = \frac{\text{FiO}_2 \times \text{MAP}}{\text{PaO}_2} \times 100
-    \label{eq:oi}
-\end{equation}
+본 재현 연구에서는 원 논문에서 최종 선별된 12개 변수의 유효성을 검증하고, 데이터 추출 과정의 완결성을 높이기 위해 초기 후보 변수군을 확장하였다. 원 논문의 12개 변수에 FiO$_2$와 MAP를 추가하여 pH, Hemoglobin, PaO$_2$, Lactate, SpO$_2$, Base Excess, Heart Rate, PaCO$_2$, DBP, SBP, Respiratory Rate, FiO$_2$, MAP, Oxygenation Index, 총 14개의 변수를 수집하였다. 주요 예측 인자인 Oxygenation Index의 정확한 산출을 위해서 초기 변수 목록을 확장하였다. MIMIC-IV 데이터베이스 특성상 Oxygenation Index가 직접 기록되지 않은 레코드가 존재할 수 있으며, 이 경우 Appendix의 ``수식 정의'' 절에 기술된 산소화 지수 공식을 통해 결측치를 보완하거나 값을 검증해야 하기에 구성 요소인 FiO$_2$와 MAP의 수집이 필수적이었다.
 
 수집된 변수들의 결측률을 산출한 후, 결측률 50\% 초과 변수를 기준으로, 결측 패턴에 높은 가중치를 부여하였으며, 가중치를 기준으로 우선적으로 제거 대상 샘플을 선정하도록 하였다. 구체적으로, 대조군에 대해서는 50\%, 실험군에 대해서는 85\%의 결측률 임계값을 차등 적용하여, 상대적으로 희소한 실험군 샘플을 최대한 보존하면서 분석 품질을 확보하고자 하였다.
 
@@ -183,15 +148,10 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
 
 \subsection{제안 모델 파이프라인}
 
-베이스라인 모델의 낮은 재현율 문제를 극복하고, 임상적 안전성을 확보하기 위해 민감도 최적화에 중점을 둔 개선된 파이프라인을 설계하였다. 데이터셋의 불균형과 제한된 양성 샘플 수를 고려하여, 모델의 일반화 성능 검증에는 5-Fold 교차 검증을 사용하였다.
+베이스라인 모델의 낮은 재현율 문제를 극복하고, 임상적 안전성을 확보하기 위해 민감도 최적화에 중점을 둔 개선된 파이프라인을 설계하였다. 데이터셋의 불균형과 제한된 양성 샘플 수를 고려하여, 모델의 일반화 성능 검증에는 5-Fold 교차 검증을 사용하였다. 최종 성능 지표는 기존 논문과 같이 AUROC, AUPRC, Accuracy, F1-score, Sensitivity, Specificity, PPV를 중점적으로 평가하였다.
 
 \subsubsection{재현율 최적화 하이퍼파라미터 튜닝}
-양성 클래스에 대한 탐지 능력을 강화하기 위해 기존의 단순 비율 기반 가중치보다 더욱 공격적인 가중치 전략을 적용하였다. 클래스 불균형 해소를 위해 음성/양성 클래스 비율에 기반한 기본값에 2배의 가중치를 추가로 적용하여 설정하였다. 모델의 하이퍼파라미터 최적화는 베이지안 최적화 프레임워크인 Optuna~\cite{akiba2019optuna}를 사용하되, 단일 지표 최적화 시 발생할 수 있는 낮은 재현율 문제를 방지하기 위해, 본 과제에서는 AUROC에 재현율 가중치를 결합한 목적 함수를 구성하였다. 구체적으로는 모델의 판별력을 기본으로 하되, 거짓 음성을 줄이는 것이 중요한 과제 특성을 반영하여 식 (\ref{eq:composite_objective})과 같이 재현율에 $\alpha$의 가중치를 부여하였다.
-\begin{equation}
-    \text{Score} = \text{AUROC} + \alpha \times \text{Recall}
-    \label{eq:composite_objective}
-\end{equation}
-이때, 가중치 $\alpha$는 0.5로 설정하였으며, 탐색 공간 또한 재현율 향상에 유리하도록, 더 세밀한 결정 경계를 형성할 수 있는 낮은 $w_{\min}$과 $\gamma$ 범위를 포함하도록 조정하였다.
+양성 클래스에 대한 탐지 능력을 강화하기 위해 기존의 단순 비율 기반 가중치보다 더욱 공격적인 가중치 전략을 적용하였다. 클래스 불균형 해소를 위해 음성/양성 클래스 비율에 기반한 기본값에 2배의 가중치를 추가로 적용하여 설정하였다. 모델의 하이퍼파라미터 최적화는 베이지안 최적화 프레임워크인 Optuna~\cite{akiba2019optuna}를 사용하되, 단일 지표 최적화 시 발생할 수 있는 낮은 재현율 문제를 방지하기 위해, 본 과제에서는 AUROC에 재현율 가중치를 결합한 목적 함수를 구성하였다. 구체적으로는 모델의 판별력을 기본으로 하되, 거짓 음성을 줄이는 것이 중요한 과제 특성을 반영하여 Appendix의 ``수식 정의'' 절에 기술된 복합 목적 함수와 같이 재현율에 $\alpha$의 가중치를 부여하였다. 이때, 가중치 $\alpha$는 0.5로 설정하였으며, 탐색 공간 또한 재현율 향상에 유리하도록, 더 세밀한 결정 경계를 형성할 수 있는 낮은 $w_{\min}$과 $\gamma$ 범위를 포함하도록 조정하였다.
 
 \begin{table}[htbp]
   \centering
@@ -218,17 +178,7 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
 \end{table}
 
 \subsubsection{제약 조건 기반 임계값 최적화}
-모델의 최종 예측 단계에서는 임상적 안전성을 보장하기 위한 제약 조건 기반 임계값 최적화 알고리즘을 적용하였다. 최적의 임계값 $t^*$는 다음의 두 가지 제약 조건을 만족하는 범위 내에서 결정되었다.
-\begin{equation}
-    \text{Recall}(t) \ge 0.45 \label{eq:recall_constraint}
-\end{equation}
-\begin{equation}
-    \text{Accuracy}(t) \ge 0.85 \label{eq:accuracy_constraint}
-\end{equation}
-위 두 조건을 동시에 만족하는 후보 임계값들 중에서 F1-score를 최대화하는 값을 최종 임계값으로 선정하였다. 만약 두 조건을 동시에 만족하는 임계값이 존재하지 않을 경우, 정확도 제약을 일부 완화하고 민감도를 우선시하는 Fallback Policy를 적용하여 기흉 진행 환자의 조기 발견 가능성을 최우선으로 확보하였다.
-
-\subsubsection{평가 지표 및 설명가능성}
-최종 성능은 AUROC, AUPRC, Accuracy, F1-score와 함께, 임상적 안전성의 핵심 지표인 Sensitivity와 Specificity, PPV를 중점적으로 평가하였다. 또한, SHAP을 통해 제안 모델이 어떤 변수에 중점을 두고 판단하였는지를 분석하고, 베이스라인 모델과의 변수 중요도 변화를 비교하여 모델의 판단 근거를 임상적으로 해석하였다.
+모델의 최종 예측 단계에서는 임상적 안전성을 보장하기 위한 제약 조건 기반 임계값 최적화 알고리즘을 적용하였다. 최적의 임계값 $t^*$는 Appendix의 ``수식 정의'' 절에 기술된 최소 민감도 제약과 최소 정확도 제약을 만족하는 범위 내에서 결정되었다. 위 두 조건을 동시에 만족하는 후보 임계값들 중에서 F1-score를 최대화하는 값을 최종 임계값으로 선정하였다. 만약 두 조건을 동시에 만족하는 임계값이 존재하지 않을 경우, 정확도 제약을 일부 완화하고 민감도를 우선시하는 Fallback Policy를 적용하여 기흉 진행 환자의 조기 발견 가능성을 최우선으로 확보하였다.
 
 \subsection{실행 환경}
 본 과제의 모든 실험은 X86환경의 Linux 환경에서 수행되었으며, 하드웨어는 AMD Ryzen 9 5900X, 64GB RAM, 그리고 NVIDIA GeForce RTX 3080 GPU로 구성되었다. 데이터 전처리, 모델 학습 및 결과 시각화를 위해 사용된 주요 소프트웨어 라이브러리의 버전은 함께 제출한 Appendix.pdf의 '소프트웨어 환경 및 버전' 절에 기재되어 있으며, 전체 소스 코드는 GitHub\footnote{\url{https://github.com/ga111o/mimic-pneumothorax-progression-analysis}}에서 확인할 수 있다.
@@ -348,7 +298,7 @@ SHAP을 통해 제시한 모델의 예측에 기여하는 주요 변수들을 �
 ROC curve, PR curve, SHAP summary plot 등의 시각화 결과는 본 보고서와 함께 제출한 Appendix.pdf에 수록되어 있다.
 
 \subsection{주요 예측 인자에 따른 영상 비교}
-SHAP 분석 결과 Hemoglobin이 외상성 중증 기흉 예측에 가장 중요한 인자로 확인되었다. 이러한 결과의 임상적 타당성을 검증하기 위해, 실험군 내에서 헤모글로빈 수치에 따른 상위 0.5\%, 중위값(50\%), 하위 0.5\%에 해당하는 환자의 흉부 X선 영상을 비교 분석하였다(Figure~\ref{fig:chest_comparison}).
+SHAP 분석 결과 Hemoglobin이 외상성 중증 기흉 예측에 가장 중요한 인자로 확인되었다. 이러한 결과의 임상적 타당성을 검증하기 위해 Figure~\ref{fig:chest_comparison}와 같이 실험군 내에서 헤모글로빈 수치에 따른 상위 0.5\%, 중위값(50\%), 하위 0.5\%에 해당하는 환자의 흉부 X선 영상을 비교 분석하였다.
 
 \begin{figure}[htbp]
   \centering
@@ -367,9 +317,11 @@ RUL상단 용적이 감수한 것을 확인할 수 있다. 우측 상복부에�
 \paragraph{하위 백분위수 환자 (헤모글로빈 7.15 g/dL)}
 multiple rib fractures 이후 산소포화도 저하와 산소 요구량 증가를 보인 환자이다. rib fractures로 인해 헤모글로빈 수치 감소가 되었음을 예상할 수 있으며, 이와같이 직접적인 외상으로 기흉, 정확히는, Hemo-pneumothorax가 발생함을 확인할 수 있었다.
 
-\paragraph{임상적 해석} 흉부 X선 영상과 헤모글로빈 수치의 비교 분석 결과, 헤모글로빈 수치는 단순한 생체 징후를 넘어 외상의 기전 및 중증도를 반영하는 중요한 간접 지표로 해석된다. 하위 백분위수 환자의 경우, multiple rib fractures과 같은 큰큰손상이 동반되었으며, 이에 따른 hemothorax이 헤모글로빈 수치의 급격한 저하를 유발한 것으로 판단된다. 이는 헤모글로빈 수치가 외상성 기흉의 중증도와 직결되는 출혈량 및 손상 범위를 대변한다는 점을 시사한다. 반면, 상위 백분위수 환자군에서는 cardiomegaly가 확인되며, diuretics 사용으로 인해 hemoconcentration가 일어나 수치가 높게 측정된 것으로 예상되며, 기저 질환이 있는 환자군에서의 특이적 양상으로 해석할 수 있다.
+\paragraph{임상적 해석} 하위 백분위수 환자의 경우, multiple rib fractures과 같은 큰손상이 동반되었으며, 이에 따른 hemothorax로 인해 헤모글로빈 수치의 급격한 저하를 유발한 것으로 판단된다. 이는 헤모글로빈 수치가 외상성 기흉의 중증도와 직결되는 출혈량 및 손상 범위를 대변한다는 점을 시사한다. 반면, 상위 백분위수 환자군에서는 cardiomegaly가 확인되며, diuretics 사용으로 인해 hemoconcentration가 일어나 수치가 높게 측정된 것으로 예상되며, 기저 질환이 있는 환자군에서의 특이적 양상으로 해석할 수 있다. 단, 헤모글로빈 수치가 기흉의 중증도 자체를 대변하기 어렵다는 것을 확인할 수 있었다.
 
 즉, SHAP에서 헤모글로빈이 최상위 예측 인자로 도출된 것은 외상으로 인한 직접적인 출혈과 환자의 기저 상태가 중증 기흉의 예후 및 양상을 결정짓는 핵심 요인이기 때문으로 판단된다. 본 분석에서 사용된 샘플은 각 레벨에서의 하나의 Chest PA만을 가져온 것으로 일반화를 하기에는 한계가 존재하나, 헤모글로빈 수치가 외상성 기흉 환자의 중증도 분류 및 예후 예측에 있어 생리학적으로 타당한 지표임을 뒷받침할 수 있을 가능성을 시사한다.
+
+단, 영상 분석은 레벨에 대해 각각 샘플 하나씩만을 분석한 것으로, 일반화를 하기에는 한계가 존재한다.
 
 \section{논의}
 본 과제에서는 원 논문의 주요 결과를 완전히 재현하는 데 한계가 있었다. Table~\ref{tab:performance}에서 확인할 수 있듯이, 베이스라인 재현 모델의 AUROC는 0.910으로 원 논문(0.979)에 비해 약 0.07 낮았으며, Recall은 0.442로 원 논문(0.730)에 비해 약 0.29 낮은 성능을 보였다. 본 절에서는 이러한 성능 차이의 원인과 과제의 한계점을 분석한다.
