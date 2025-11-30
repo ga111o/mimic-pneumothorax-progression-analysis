@@ -21,6 +21,13 @@
 \titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.8ex plus 0.2ex}
 \titlespacing*{\subsection}{0pt}{1.2ex plus 0.4ex minus 0.2ex}{0.5ex plus 0.1ex}
 \titlespacing*{\subsubsection}{0pt}{1.0ex plus 0.3ex minus 0.1ex}{0.3ex plus 0.1ex}
+\titlespacing*{\paragraph}{0pt}{0.8ex plus 0.2ex minus 0.1ex}{0.5em}
+
+\usepackage{titling}
+\setlength{\droptitle}{-4em}
+\posttitle{\end{center}\vspace{-1.5em}}
+\preauthor{\begin{center}}
+\postauthor{\end{center}\vspace{-6em}}
 
 \usepackage{fontspec}
 \setmainfont{Noto Serif CJK KR}
@@ -45,18 +52,11 @@
 \maketitle
 
 \section{서론}
-\subsection{선택한 논문의 기본 정보}
-
-본 보고서에서 다루는 논문의 제목은 \textbf{``A New Evaluation Model for Traumatic Severe Pneumothorax Based on Interpretable Machine Learning''}이다~\cite{li2024}. 저자는 Jing Li, Yinzhen Lv, Jiayi Weng, Wei Chen, He Huang, Yuzhuo Zhao로 구성되어 있으며, 본 논문은 2024년 \textit{International Journal of Computers Communications \& Control}에 게재되었다. 위 논문은 MIMIC-IV 데이터셋을 기반으로 머신러닝 기법들을 활용하여 외상성 중증 기흉을 신속하고 해석 가능하게 평가하는 모델을 제안한 연구이다.
-
-\subsection{선택 이유 및 연구 주제의 중요성}
-외상성 기흉은 신속한 진단이 생존율에 직결되는 응급 질환으로, 영상 검사가 어려운 환경에서도 활용 가능한 예측 모델의 임상적 필요성이 높아 본 연구를 선정하였다. 특히, 해석 가능한 머신러닝을 통해 임상적 타당성을 확보한 점과 MIMIC-IV 데이터를 활용한 재현 가능성이 본 과제의 학습 목표와 부합하여 적절하다고 판단하였다.
+본 보고서는 \textbf{``A New Evaluation Model for Traumatic Severe Pneumothorax Based on Interpretable Machine Learning''}~\cite{li2024} 논문을 재현하고 분석한다. 이 논문은 MIMIC-IV 데이터를 기반으로 외상성 중증 기흉을 신속하게 평가하는 해석 가능한 머신러닝 모델을 제안하였다. 외상성 기흉은 신속한 진단이 생존율과 직결되는 응급 질환이므로, 영상 검사가 어려운 환경에서도 활용 가능한 예측 모델의 임상적 필요성이 높다. 이에 기흉 병력이 있는 이번 과제의 작성자는 임상 데이터만으로 질환을 예측할 수 있다는 점에 흥미를 느껴 해당 주제를 선정하였다.
 
 \section{기존 논문 리뷰}
 \subsection{연구 목적}
-해당 연구는 중환자실 임상 데이터베이스인 MIMIC-IV를 활용하여 외상성 중증 기흉을 신속하게 진단하고 평가할 수 있는, 해석 가능한 머신러닝 기반의 새로운 평가 모델을 제안하는 것을 주된 목적으로 한다. 레퍼런스 논문의 저자들은 기존의 영상 의학적 진단 방식이 응급 상황, 대량 사상자가 발생하는 재난 상황, 혹은 의료 자원이 부족한 환경에서 신속한 대응이 어렵다는 한계점에 주목하였다. 이에 대한 대안으로 영상 검사 결과가 도출되기 전, 환자의 활력 징후와 혈액 가스 분석 등에서 추출한 12가지 주요 임상 변수를 활용하여 기흉의 중증도를 조기에 판별할 수 있는 데이터 기반 모델을 구축하였다.
-
-해당 연구는 XGBoost, ANN, SVM, KNN 등 네 가지 머신러닝 알고리즘의 예측 성능을 비교 분석하여 외상성 기흉 평가에 최적화된 알고리즘을 도출하고자 하였으며, SHAP을 통해 헤모글로빈, 산소화 지수, pH 등 핵심 인자가 모델의 예측 결과에 미치는 영향을 정량적으로 규명하고 임상적 타당성을 확보하는 데 중점을 두었다. 나아가 eICU 데이터셋을 활용한 외부 검증을 수행함으로써 제안된 모델의 강건성과 일반화 가능성을 입증하고자 하였다.
+해당 연구는 MIMIC-IV를 활용하여 외상성 중증 기흉을 진단하는 해석 가능한 머신러닝 모델을 제안하였다. 기존 영상 의학적 진단은 응급 상황이나 의료 자원이 부족한 환경에서 신속한 대응이 어렵다는 한계가 있어, 활력 징후와 혈액 가스 분석에서 추출한 12가지 임상 변수로 기흉 중증도를 조기 판별하는 모델을 구축하였다.
 
 \subsection{데이터 및 코호트 정의}
 해당 연구는 MIMIC-IV를 기반으로 하였다. 연구 대상자는 성인 환자 중 인구통계학적 정보와 병원 진료 기록이 온전한 환자로 한정하였으며, 분석의 신뢰도를 높이기 위해 폐질환 및 심장질환 등 기흉 발생이나 호흡기 지표에 영향을 줄 수 있는 기저 질환을 보유한 환자를 제외하였다. 또한, 데이터의 결측률이 50\% 이상이거나 이상치가 포함된 샘플 역시 분석에서 배제하였다.
@@ -68,11 +68,11 @@
 \subsection{기존 연구 결과}
 기존 연구 결과, Figure~\ref{fig:original_results}의 좌측 표와 같이 4가지 기계학습 알고리즘 중 XGBoost가 가장 우수한 진단 성능을 보였다. MIMIC-IV 데이터셋을 기반으로 한 내부 검증에서 XGBoost는 AUROC 0.979 (95\% CI: 0.966-0.989), 정확도 0.947, 재현율 0.730을 기록하며 ANN, SVM, KNN 등 타 모델을 전반적으로 상회하는 성능을 입증하였다. 또한, EICU 데이터셋을 활용한 외부 검증에서도 타 모델들과 다르게 XGBoost는 AUROC 0.806을 기록하며 데이터셋 변화에 대해서도 상대적으로 강건한 일반화 성능을 유지하였다.
 
-SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 분석 결과, 외상성 중증 기흉 판별에 가장 큰 영향을 미치는 상위 3가지 주요 인자는 pH, Hemoglobin, PaO$_2$인 것으로 확인되었다. 이 세 가지 인자의 수치가 낮을수록 모델이 기흉 위험도를 높게 평가하는 경향을 보였다. 이는 외상성 기흉 환자에게서 나타나는 병태생리학적 특징인 다량의 출혈, 호흡 부전으로 인한 저산소 및 산증과 임상적으로 일치하는 결과이다. 반면 Lactate 수치는 높을수록 기흉의 가능성을 높게 예측하는 주요 인자로 확인되었다.
+SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 분석 결과, 외상성 중증 기흉 판별에 가장 큰 영향을 미치는 상위 3가지 주요 인자는 pH, Hemoglobin, PaO$_2$인 것으로 확인되었다. 이 세 가지 인자의 수치가 낮을수록 모델이 기흉 위험도를 높게 평가하는 경향을 보였다. 이에 연구자들은 외상성 기흉 환자에게서 나타나는 병태생리학적 특징인 다량의 출혈, 호흡 부전으로 인한 저산소 및 산증과 임상적으로 일치하는 결과라고 판단하였다.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/original_results.png}
+  \includegraphics[width=0.8\textwidth]{figures/original_results.png}
   \caption{Original Research Performance Evaluation and SHAP Analysis Results. (Left) Model Performance Comparison Table for MIMIC-IV Internal Validation and EICU External Validation. (Right) SHAP Summary Plot for XGBoost Model, showing pH, Hgb, PO2 as the most influential factors in prediction.}
   \label{fig:original_results}
 \end{figure}
@@ -84,10 +84,11 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
 
 \begin{table}[htbp]
   \centering
-  \small
+  \footnotesize
   \caption{Original Study vs. Reproduction Study Cohort Composition}
   \label{tab:cohort_comparison}
-  \renewcommand{\arraystretch}{1.2}
+  \renewcommand{\arraystretch}{0.55}
+  \setlength{\tabcolsep}{4pt}
   \begin{tabular}{l c c c}
     \toprule
     \textbf{Group} & \textbf{Original Study} & \textbf{Reproduction (Initial)} & \textbf{Reproduction (Final)} \\
@@ -98,15 +99,12 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
     Total & 3,871 & 10,369 & 663 \\
     \bottomrule
   \end{tabular}
-  \footnotesize
-  \vspace{0.5em}
+  \vspace{0.3em}
   
   \textit{Note: Initial extraction yielded 195 experimental and 10,174 control patients. After applying ICU admission requirement, feature extraction constraints, and missing data thresholds, final cohort was reduced significantly.}
 \end{table}
 
-실험군 선정 과정에서 본 재현 연구는 ICD-10 진단코드 기반으로 외상성 기흉 및 긴장성 기흉 진단을 받은 환자를 1차적으로 추출하였다. 이후 MIMIC-CXR 데이터베이스의 CheXpert 라벨과 NegBio 라벨을 활용하여 기흉 소견이 양성(Positive)으로 분류된 환자를 선별하였으며, CXR 리포트 원문에 대한 텍스트 마이닝을 추가 수행하여 ``large pneumothorax'', ``tension pneumothorax'', ``chest tube'' 등의 중증도 관련 키워드 또는 2cm 이상의 크기 기술이 포함된 경우를 중증 기흉으로 분류하였다. 또한, 흉관 삽입술 등 기흉 관련 시술 기록이 존재하는 환자도 실험군에 포함하였다. 그러나 원 논문에서는 영상 검사에서 ``흉벽에서 폐 외연까지 2cm 이상'' 또는 ``정점에서 cupola까지 3cm 이상''이라는 구체적인 측정 기준을 제시하였다. 본 재현 과제에서는 컴퓨팅 리소스의 제약 등의 한계로 실제 영상에 대한 직접적인 측정이 불가능하여, CheXpert/NegBio 라벨 및 CXR 리포트의 텍스트 기반 추론에 의존하였다. 이러한 방법론적 차이로 인해 초기 추출된 실험군 195명 중 중증도 확인이 불가능하거나 ICU 입실 기록이 없는 환자가 제외되어 최종 119명으로 감소하였다.
-
-대조군의 경우, 원 논문에서 제시한 기준인 비외상 환자, 기흉 소견 없음, 폐 관련 수술 없음, 생존 퇴원을 적용하여 초기 10,174명을 추출하였다. 이때 CheXpert 및 NegBio 라벨에서 기흉 관련 소견이 음성인 환자만을 대조군 후보로 선정하였다. 그러나 12개 핵심 변수의 결측률 기준을 적용하는 과정에서 상당수가 제외되어 고유 환자 기준 최종 544명만이 분석에 포함되었다.
+실험군 선정 과정에서 본 재현 연구는 ICD-10 진단코드 기반으로 외상성 기흉 및 긴장성 기흉 진단을 받은 환자를 1차적으로 추출하였다. 이후 MIMIC-CXR 데이터베이스의 CheXpert 라벨과 NegBio 라벨을 활용하여 기흉 소견이 양성(Positive)으로 분류된 환자를 선별하였으며, CXR 리포트 원문에 대한 텍스트 마이닝을 추가 수행하여 ``large pneumothorax'', ``tension pneumothorax'', ``chest tube'' 등의 중증도 관련 키워드 또는 2cm 이상의 크기 기술이 포함된 경우를 중증 기흉으로 분류하였다. 또한, 흉관 삽입술 등 기흉 관련 시술 기록이 존재하는 환자도 실험군에 포함하였다. 그러나 원 논문에서는 영상 검사에서 ``흉벽에서 폐 외연까지 2cm 이상'' 또는 ``정점에서 cupola까지 3cm 이상''이라는 구체적인 측정 기준을 제시하였다. 본 재현 과제에서는 컴퓨팅 리소스의 제약 등의 한계로 실제 영상에 대한 직접적인 측정이 불가능하여, CheXpert/NegBio 라벨 및 CXR 리포트의 텍스트 기반 추론에 의존하였다. 이러한 방법론적 차이로 인해 초기 추출된 실험군 195명 중 중증도 확인이 불가능하거나 ICU 입실 기록이 없는 환자가 제외되어 최종 119명으로 감소하였다. 대조군의 경우, 원 논문에서 제시한 기준인 비외상 환자, 기흉 소견 없음, 폐 관련 수술 없음, 생존 퇴원을 적용하여 초기 10,174명을 추출하였다. 이때 CheXpert 및 NegBio 라벨에서 기흉 관련 소견이 음성인 환자만을 대조군 후보로 선정하였다. 그러나 12개 핵심 변수의 결측률 기준을 적용하는 과정에서 상당수가 제외되어 고유 환자 기준 최종 544명만이 분석에 포함되었다.
 
 임상 변수 추출을 위한 시간 윈도우는 실험군과 대조군에 대해 차등적으로 설정하였다. 실험군의 경우 기흉 관련 시술 시간을 기준 시점으로 하되, 시술 시간이 기록되지 않은 경우 ICU 입실 시간, 그것도 없는 경우 입원 시간을 순차적으로 적용하여 기준 시점으로부터 1시간 이전까지의 데이터를 수집하였다. 대조군의 경우에는 퇴원 시간을 기준으로 24시간 이전까지의 데이터를 수집하였다. 이러한 설정을 통해 실험군에서는 급성 기흉 발생 직전의 임상 상태를, 대조군에서는 안정적인 퇴원 전 상태를 반영하고자 하였다.
 
@@ -126,11 +124,12 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
 
 \begin{table}[htbp]
   \centering
-  \small
+  \footnotesize
   \caption{Baseline Model XGBoost Hyperparameter Search Range and Optimal Values}
   \vspace{-0.5em}
   \label{tab:hyperparameters_baseline}
-  \renewcommand{\arraystretch}{0.85}
+  \renewcommand{\arraystretch}{0.55}
+  \setlength{\tabcolsep}{4pt}
   \begin{tabular}{l c l l}
     \toprule
     \textbf{Hyperparameter} & \textbf{Symbol} & \textbf{Search Range} & \textbf{Optimal Value} \\
@@ -155,11 +154,12 @@ SHAP 결과는 Figure~\ref{fig:original_results}의 우측 그래프와 같다. 
 
 \begin{table}[htbp]
   \centering
-  \small
+  \footnotesize
   \caption{Proposed Model XGBoost Hyperparameters via Bayesian Optimization}
   \vspace{-0.5em}
   \label{tab:hyperparameters_proposed}
-  \renewcommand{\arraystretch}{0.85}
+  \renewcommand{\arraystretch}{0.55}
+  \setlength{\tabcolsep}{4pt}
   \begin{tabular}{l c l}
     \toprule
     \textbf{Hyperparameter} & \textbf{Symbol} & \textbf{Optimal Value} \\
@@ -192,20 +192,22 @@ Table~\ref{tab:performance}는 원 논문, 베이스라인 재현 모델, 그리
 \caption{Diagnostic Performance of Machine Learning Models in Original Study and Reproduction}
 \vspace{-0.5em}
 \label{tab:performance}
-\renewcommand{\arraystretch}{0.85}
+\footnotesize
+\renewcommand{\arraystretch}{0.55}
+\setlength{\tabcolsep}{4pt}
 \resizebox{\textwidth}{!}{
   \begin{tabular}{llccccccc}
   \toprule
-  Model & Dataset & Accuracy & \makecell{F1\\Score} & Precision & Recall & \makecell{AUROC\\(95\% CI)} & AUPRC & Sensitivity \\
+  Model & Dataset & Accuracy & F1 Score & Precision & Recall & AUROC (95\% CI) & AUPRC & Sensitivity \\
   \midrule
   \multicolumn{9}{l}{\textbf{Original Study}} \\
-  XGBoost & MIMIC-IV & 0.947 & 0.822 & 0.941 & 0.730 & \makecell{0.979\\(0.966, 0.989)} & 0.926 & 0.991 \\
+  XGBoost & MIMIC-IV & 0.947 & 0.822 & 0.941 & 0.730 & 0.979 (0.966, 0.989) & 0.926 & 0.991 \\
   \midrule
   \multicolumn{9}{l}{\textbf{Reproduction - Baseline}} \\
-  XGBoost & MIMIC-IV & \makecell{0.885\\$\pm$ 0.016} & \makecell{0.557\\$\pm$ 0.076} & \makecell{0.779\\$\pm$ 0.083} & \makecell{0.442\\$\pm$ 0.082} & \makecell{0.910\\$\pm$ 0.038} & \makecell{0.764\\$\pm$ 0.066} & \makecell{0.442\\$\pm$ 0.082} \\
+  XGBoost & MIMIC-IV & 0.885 $\pm$ 0.016 & 0.557 $\pm$ 0.076 & 0.779 $\pm$ 0.083 & 0.442 $\pm$ 0.082 & 0.910 $\pm$ 0.038 & 0.764 $\pm$ 0.066 & 0.442 $\pm$ 0.082 \\
   \midrule
   \multicolumn{9}{l}{\textbf{Proposed Model}} \\
-  XGBoost & MIMIC-IV & \makecell{0.883\\$\pm$ 0.034} & \makecell{0.668\\$\pm$ 0.083} & \makecell{0.650\\$\pm$ 0.116} & \makecell{0.700\\$\pm$ 0.100} & \makecell{0.904\\$\pm$ 0.040} & \makecell{0.704\\$\pm$ 0.095} & \makecell{0.700\\$\pm$ 0.100} \\
+  XGBoost & MIMIC-IV & 0.883 $\pm$ 0.034 & 0.668 $\pm$ 0.083 & 0.650 $\pm$ 0.116 & 0.700 $\pm$ 0.100 & 0.904 $\pm$ 0.040 & 0.704 $\pm$ 0.095 & 0.700 $\pm$ 0.100 \\
   \bottomrule
   \end{tabular}%
 }
@@ -218,10 +220,12 @@ Table~\ref{tab:optimized_threshold}는 최적 임계값(0.650)에서의 5-Fold �
 
 \begin{table}[H]
 \centering
+\footnotesize
 \caption{Cross-Validation Results at Optimized Threshold (0.650)}
 \vspace{-0.5em}
 \label{tab:optimized_threshold}
-\renewcommand{\arraystretch}{0.85}
+\renewcommand{\arraystretch}{0.55}
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lc}
   \toprule
   \textbf{Metric} & \textbf{Value (Mean $\pm$ Std)} \\
@@ -246,9 +250,12 @@ Table~\ref{tab:improvement}는 베이스라인 모델과 제안 모델의 주요
 
 \begin{table}[H]
 \centering
+\footnotesize
 \caption{Performance Comparison: Baseline vs. Recall-Optimized Model}
+\vspace{-0.5em}
 \label{tab:improvement}
-\renewcommand{\arraystretch}{0.85}
+\renewcommand{\arraystretch}{0.55}
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lccc}
   \toprule
   \textbf{Metric} & \textbf{Baseline} & \textbf{Proposed} & \textbf{Change} \\
@@ -270,10 +277,12 @@ SHAP을 통해 제시한 모델의 예측에 기여하는 주요 변수들을 �
 
 \begin{table}[H]
 \centering
+\footnotesize
 \caption{Top 10 Feature Importance by SHAP Values (Recall-Optimized Model)}
 \vspace{-0.5em}
 \label{tab:shap}
-\renewcommand{\arraystretch}{0.85}
+\renewcommand{\arraystretch}{0.55}
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{clc}
   \toprule
   \textbf{Rank} & \textbf{Feature} & \textbf{Mean |SHAP|} \\
@@ -295,14 +304,14 @@ SHAP을 통해 제시한 모델의 예측에 기여하는 주요 변수들을 �
 원 논문과 마찬가지로 Hemoglobin이 가장 중요한 예측 인자로 확인되었으며, 이는 외상성 기흉 환자에서 나타나는 출혈과 관련된 병태생리학적 특징과 일치한다. 민감도 최적화 모델에서는 산소화 관련 지표인 PaO$_2$가 3위로 상승하였고, Lactate와 SpO$_2$의 중요도가 높아졌다. 민감도 최적화 과정에서 모델이 호흡 기능 및 조직 관류 상태를 더욱 중요하게 고려하도록 학습되었음을 시사한다. 다만, 기존 논문에서 가장 중요했던 pH는 본 분석에서도 상위 10개에 포함되지 않았다.
 
 \subsection{결과 시각화}
-ROC curve, PR curve, SHAP summary plot 등의 시각화 결과는 본 보고서와 함께 제출한 Appendix.pdf에 수록되어 있다.
+베이스라인 모델과 제안 모델의 교차 검증 메트릭 비교, SHAP 특성 중요도 분석, 임계값에 따른 성능 지표 변화 분석은 본 보고서와 함께 제출한 Appendix.pdf의 ``결과 시각화'' 절에 수록되어 있다. 
 
 \subsection{주요 예측 인자에 따른 영상 비교}
 SHAP 분석 결과 Hemoglobin이 외상성 중증 기흉 예측에 가장 중요한 인자로 확인되었다. 이러한 결과의 임상적 타당성을 검증하기 위해 Figure~\ref{fig:chest_comparison}와 같이 실험군 내에서 헤모글로빈 수치에 따른 상위 0.5\%, 중위값(50\%), 하위 0.5\%에 해당하는 환자의 흉부 X선 영상을 비교 분석하였다.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/chest_pa_comparison.png}
+  \includegraphics[width=0.8\textwidth]{figures/chest_pa_comparison.png}
   \vspace{-0.5em}
   \caption{Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%).}
   \label{fig:chest_comparison}
@@ -317,9 +326,9 @@ RUL상단 용적이 감수한 것을 확인할 수 있다. 우측 상복부에�
 \paragraph{하위 백분위수 환자 (헤모글로빈 7.15 g/dL)}
 multiple rib fractures 이후 산소포화도 저하와 산소 요구량 증가를 보인 환자이다. rib fractures로 인해 헤모글로빈 수치 감소가 되었음을 예상할 수 있으며, 이와같이 직접적인 외상으로 기흉, 정확히는, Hemo-pneumothorax가 발생함을 확인할 수 있었다.
 
-\paragraph{임상적 해석} 하위 백분위수 환자의 경우, multiple rib fractures과 같은 큰손상이 동반되었으며, 이에 따른 hemothorax로 인해 헤모글로빈 수치의 급격한 저하를 유발한 것으로 판단된다. 이는 헤모글로빈 수치가 외상성 기흉의 중증도와 직결되는 출혈량 및 손상 범위를 대변한다는 점을 시사한다. 반면, 상위 백분위수 환자군에서는 cardiomegaly가 확인되며, diuretics 사용으로 인해 hemoconcentration가 일어나 수치가 높게 측정된 것으로 예상되며, 기저 질환이 있는 환자군에서의 특이적 양상으로 해석할 수 있다. 단, 헤모글로빈 수치가 기흉의 중증도 자체를 대변하기 어렵다는 것을 확인할 수 있었다.
+\paragraph{임상적 해석} 하위 백분위수 환자의 경우, multiple rib fractures과 같은 큰손상이 동반되었으며, 이에 따른 hemothorax로 인해 헤모글로빈 수치의 급격한 저하를 유발한 것으로 판단된다. 이는 헤모글로빈 수치가 외상성 기흉의 중증도와 직결되는 출혈량 및 손상 범위를 대변한다는 점을 시사한다. 반면, 상위 백분위수 환자군에서는 cardiomegaly가 확인되며, diuretics 사용으로 인해 hemoconcentration가 일어나 수치가 높게 측정된 것으로 예상되며, 기저 질환이 있는 환자군에서의 특이적 양상으로 해석할 수 있다.
 
-즉, SHAP에서 헤모글로빈이 최상위 예측 인자로 도출된 것은 외상으로 인한 직접적인 출혈과 환자의 기저 상태가 중증 기흉의 예후 및 양상을 결정짓는 핵심 요인이기 때문으로 판단된다. 본 분석에서 사용된 샘플은 각 레벨에서의 하나의 Chest PA만을 가져온 것으로 일반화를 하기에는 한계가 존재하나, 헤모글로빈 수치가 외상성 기흉 환자의 중증도 분류 및 예후 예측에 있어 생리학적으로 타당한 지표임을 뒷받침할 수 있을 가능성을 시사한다.
+SHAP에서 헤모글로빈이 최상위 예측 인자로 도출된 것은 외상으로 인한 직접적인 출혈과 환자의 기저 상태가 중증 기흉의 예후 및 양상을 결정짓는 핵심 요인이기 때문으로 판단된다. 본 분석에서 사용된 샘플은 각 레벨에서의 하나의 Chest PA만을 가져온 것으로 일반화를 하기에는 한계가 존재하나, 헤모글로빈 수치가 외상성 기흉 환자의 중증도 분류 및 예후 예측에 있어 생리학적으로 타당한 지표임을 뒷받침할 수 있을 가능성을 시사한다.
 
 단, 영상 분석은 레벨에 대해 각각 샘플 하나씩만을 분석한 것으로, 일반화를 하기에는 한계가 존재한다.
 
@@ -329,18 +338,16 @@ multiple rib fractures 이후 산소포화도 저하와 산소 요구량 증가�
 \subsection{재현 실패 요인 분석}
 
 \paragraph{코호트 구성의 불일치}
-가장 근본적인 재현 실패 요인은 코호트 구성의 차이로 판단하였다. 원 논문에서는 실험군 174명, 대조군 3,697명을 추출하였다고 보고하였으나, 본 연구에서는 동일한 MIMIC-IV 데이터베이스에서 실험군 119명, 대조군 544명만을 최종 분석에 포함할 수 있었다. 실험군 규모가 약 32\% 감소하고 대조군이 약 85\% 감소한 것은 모델 학습에 상당한 영향을 미쳤을 것으로 사료된다.
-
-실험군 수의 차이는 중증 기흉 판별 기준의 상이함에서 기인한다. 원 논문에서는 흉부 X선 영상에서 직접 측정한 크기를 기준으로 중증도를 판별하였으나, 본 연구에서는 영상의학 보고서에 대한 텍스트 마이닝에 의존하였다. 텍스트 기반 추출은 ``large'', ``significant'' 등의 정성적 표현에 의존하므로, 영상 측정 기반 분류와 완전한 일치를 기대하기 어렵다. 또한, 본 연구에서는 ICU 입실 기록(stay\_id)이 존재하고 시술 시간 또는 영상 검사 시간을 기준점으로 활용할 수 있는 환자만을 포함하였으나, 기존 논문에서는 이러한 필터링 기준을 명시하지 않았다.
+가장 근본적인 재현 실패 요인은 코호트 구성의 차이로 판단하였다. 원 논문에서는 실험군 174명, 대조군 3,697명을 추출하였다고 보고하였으나, 본 연구에서는 동일한 MIMIC-IV 데이터베이스에서 실험군 119명, 대조군 544명만을 최종 분석에 포함할 수 있었다. 실험군 규모가 약 32\% 감소하고 대조군이 약 85\% 감소한 것은 모델 학습에 상당한 영향을 미쳤을 것으로 사료된다. 실험군 수의 차이는 중증 기흉 판별 기준의 상이함에서 기인하는 것으로 판단하였다. 원 논문에서는 흉부 X선 영상에서 직접 측정한 크기를 기준으로 중증도를 판별하였으나, 본 연구에서는 영상의학 보고서에 대한 텍스트 마이닝에 의존하였다. 텍스트 기반 추출은 ``large'', ``significant'' 등의 정성적 표현에 의존하므로, 영상 측정 기반 분류와 완전한 일치를 기대하기 어렵다.
 
 \paragraph{결측치 처리 방식}
-원 논문에서는 다중대체법을 사용했다고만 언급하였을 뿐, 구체적인 알고리즘을 명시하지 않았다. 따라서, 코호트를 동일하게 추출하였다고 하더라도, 기존 논문에서 결측치를 처리하고 난 이후의 결과와 본 과제의 결측치 처리 이후의 결과가 동일함을 증명할 수 없었다. 결측치 처리 방식의 차이는 최종 분석 데이터셋의 분포와 규모에 직접적인 영향을 미치기에 재현에 실패한 요인 중 하나로 판단하였다.
+원 논문에서는 다중대체법을 사용했다고만 언급하였을 뿐, 구체적인 알고리즘을 명시하지 않았다. 따라서, 코호트를 동일하게 추출하였다고 하더라도, 기존 논문에서 결측치를 처리하고 난 이후의 결과와 본 과제의 결측치 처리 이후의 결과가 동일함을 증명할 수 없었다.
 
 \paragraph{데이터베이스 버전}
 본 과제는 기존 연구와 동일하게 MIMIC-IV 데이터베이스를 사용하였으나, 기존 연구의 논문 제출 시점은 2019년으로, 현재와 상당한 차이가 있다. 따라서, 기존 연구에서 사용되었던 버전의 데이터베이스와 본 과제에서 사용한 데이터베이스가 완전히 동일함을 입증할 수 없다는 한계 또한 존재한다.
 
 \paragraph{시간 윈도우 설정}
-원 논문에서는 ``영상 검사 또는 기흉 처치 시간 기준 1시간 이내''의 데이터를 사용한다고 기술하였다. 본 연구에서는 이 기준을 준수하였으나, 동일 환자의 복수 영상 검사 처리 방식에 대한 구체적 기술이 없어 해석의 여지가 있었다. 본 과제에서는 실험군의 경우 시술 시간을 1차 기준으로 하되, 시술 시간이 누락된 경우 ICU 입실 시간, 그것도 누락된 경우 입원 시간을 기준 시점으로 설정하여 해당 시점으로부터 1시간 이전까지의 데이터를 수집하였다. 대조군의 경우에는 퇴원 시간을 기준으로 하여 24시간 이전까지의 데이터를 수집하였다. 
+원 논문에서는 ``영상 검사 또는 기흉 처치 시간 기준 1시간 이내''의 데이터를 사용한다고 기술하였다. 본 연구에서는 이 기준을 준수하였으나, 동일 환자의 복수 영상 검사 처리 방식에 대한 구체적 기술이 없어 해석의 여지가 있었다. 
 
 \subsection{과제의 한계점}
 

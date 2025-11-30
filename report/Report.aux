@@ -4,65 +4,63 @@
 \citation{li2024}
 \HyPL@Entry{0<</S/D>>}
 \@writefile{toc}{\contentsline {section}{\numberline {1}서론}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}선택한 논문의 기본 정보}{1}{subsection.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}선택 이유 및 연구 주제의 중요성}{1}{subsection.1.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}기존 논문 리뷰}{1}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}연구 목적}{1}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}데이터 및 코호트 정의}{1}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}기존 연구 결과}{1}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}재현 방법}{1}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}코호트 구성}{1}{subsection.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Original Research Performance Evaluation and SHAP Analysis Results. (Left) Model Performance Comparison Table for MIMIC-IV Internal Validation and EICU External Validation. (Right) SHAP Summary Plot for XGBoost Model, showing pH, Hgb, PO2 as the most influential factors in prediction.}}{2}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:original_results}{{1}{2}{Original Research Performance Evaluation and SHAP Analysis Results. (Left) Model Performance Comparison Table for MIMIC-IV Internal Validation and EICU External Validation. (Right) SHAP Summary Plot for XGBoost Model, showing pH, Hgb, PO2 as the most influential factors in prediction}{figure.caption.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}재현 방법}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}코호트 구성}{2}{subsection.3.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Original Study vs. Reproduction Study Cohort Composition}}{2}{table.caption.2}\protected@file@percent }
 \newlabel{tab:cohort_comparison}{{1}{2}{Original Study vs. Reproduction Study Cohort Composition}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}데이터 전처리 파이프라인}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}베이스라인 모델 및 하이퍼파라미터}{2}{subsection.3.3}\protected@file@percent }
 \citation{akiba2019optuna}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}데이터 전처리 파이프라인}{3}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}베이스라인 모델 및 하이퍼파라미터}{3}{subsection.3.3}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Baseline Model XGBoost Hyperparameter Search Range and Optimal Values}}{3}{table.caption.3}\protected@file@percent }
 \newlabel{tab:hyperparameters_baseline}{{2}{3}{Baseline Model XGBoost Hyperparameter Search Range and Optimal Values}{table.caption.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}제안 모델 파이프라인}{3}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.1}재현율 최적화 하이퍼파라미터 튜닝}{3}{subsubsection.3.4.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Proposed Model XGBoost Hyperparameters via Bayesian Optimization}}{4}{table.caption.4}\protected@file@percent }
-\newlabel{tab:hyperparameters_proposed}{{3}{4}{Proposed Model XGBoost Hyperparameters via Bayesian Optimization}{table.caption.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}제약 조건 기반 임계값 최적화}{4}{subsubsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}실행 환경}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Proposed Model XGBoost Hyperparameters via Bayesian Optimization}}{3}{table.caption.4}\protected@file@percent }
+\newlabel{tab:hyperparameters_proposed}{{3}{3}{Proposed Model XGBoost Hyperparameters via Bayesian Optimization}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.4.2}제약 조건 기반 임계값 최적화}{3}{subsubsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}실행 환경}{3}{subsection.3.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}실험 결과}{4}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}성능 지표 비교}{4}{subsection.4.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Diagnostic Performance of Machine Learning Models in Original Study and Reproduction}}{4}{table.caption.5}\protected@file@percent }
 \newlabel{tab:performance}{{4}{4}{Diagnostic Performance of Machine Learning Models in Original Study and Reproduction}{table.caption.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}제약 조건 기반 임계값 최적화 결과}{4}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Cross-Validation Results at Optimized Threshold (0.650)}}{5}{table.caption.6}\protected@file@percent }
-\newlabel{tab:optimized_threshold}{{5}{5}{Cross-Validation Results at Optimized Threshold (0.650)}{table.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}베이스라인 대비 성능 개선}{5}{subsection.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Performance Comparison: Baseline vs. Recall-Optimized Model}}{5}{table.caption.7}\protected@file@percent }
-\newlabel{tab:improvement}{{6}{5}{Performance Comparison: Baseline vs. Recall-Optimized Model}{table.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}SHAP 변수 중요도 분석}{5}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Cross-Validation Results at Optimized Threshold (0.650)}}{4}{table.caption.6}\protected@file@percent }
+\newlabel{tab:optimized_threshold}{{5}{4}{Cross-Validation Results at Optimized Threshold (0.650)}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}베이스라인 대비 성능 개선}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Performance Comparison: Baseline vs. Recall-Optimized Model}}{4}{table.caption.7}\protected@file@percent }
+\newlabel{tab:improvement}{{6}{4}{Performance Comparison: Baseline vs. Recall-Optimized Model}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}SHAP 변수 중요도 분석}{4}{subsection.4.4}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Top 10 Feature Importance by SHAP Values (Recall-Optimized Model)}}{5}{table.caption.8}\protected@file@percent }
 \newlabel{tab:shap}{{7}{5}{Top 10 Feature Importance by SHAP Values (Recall-Optimized Model)}{table.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}결과 시각화}{6}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}주요 예측 인자에 따른 영상 비교}{6}{subsection.4.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%).}}{6}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:chest_comparison}{{2}{6}{Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%)}{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {paragraph}{상위 백분위수 환자 (헤모글로빈 13.3 g/dL)}{6}{paragraph*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{중위 백분위수 환자 (헤모글로빈 10.77 g/dL)}{6}{paragraph*.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{하위 백분위수 환자 (헤모글로빈 7.15 g/dL)}{6}{paragraph*.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{임상적 해석}{6}{paragraph*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}결과 시각화}{5}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}주요 예측 인자에 따른 영상 비교}{5}{subsection.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%).}}{5}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:chest_comparison}{{2}{5}{Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%)}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {paragraph}{상위 백분위수 환자 (헤모글로빈 13.3 g/dL)}{5}{paragraph*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{중위 백분위수 환자 (헤모글로빈 10.77 g/dL)}{5}{paragraph*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{하위 백분위수 환자 (헤모글로빈 7.15 g/dL)}{5}{paragraph*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{임상적 해석}{5}{paragraph*.13}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}논의}{6}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}재현 실패 요인 분석}{7}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{코호트 구성의 불일치}{7}{paragraph*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{결측치 처리 방식}{7}{paragraph*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{데이터베이스 버전}{7}{paragraph*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{시간 윈도우 설정}{7}{paragraph*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}과제의 한계점}{7}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{재현성 정보의 부족}{7}{paragraph*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{코호트 규모의 제약}{7}{paragraph*.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{외부 검증의 부재}{7}{paragraph*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}임상적 함의 및 향후 연구 방향}{7}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}결론}{7}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}재현 실패 요인 분석}{6}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{코호트 구성의 불일치}{6}{paragraph*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{결측치 처리 방식}{6}{paragraph*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{데이터베이스 버전}{6}{paragraph*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{시간 윈도우 설정}{6}{paragraph*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}과제의 한계점}{6}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{재현성 정보의 부족}{6}{paragraph*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{코호트 규모의 제약}{6}{paragraph*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{외부 검증의 부재}{6}{paragraph*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}임상적 함의 및 향후 연구 방향}{6}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}결론}{6}{section.6}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{references}
 \bibcite{akiba2019optuna}{1}
 \bibcite{li2024}{2}
-\gdef \@abspage@last{8}
+\gdef \@abspage@last{7}

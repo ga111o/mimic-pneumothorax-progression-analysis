@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.13)  30 NOV 2025 18:46
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.13)  30 NOV 2025 19:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -684,7 +684,33 @@ LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/it' undefined
 
 
 
-[2] (./Appendix.aux)
+[2]
+
+[3]
+File: figures/cv_metrics_comparison.png Graphic file (type bmp)
+<figures/cv_metrics_comparison.png>
+File: figures/shap_importance.png Graphic file (type bmp)
+<figures/shap_importance.png>
+
+
+[4]
+File: figures/shap_summary.png Graphic file (type bmp)
+<figures/shap_summary.png>
+
+
+[5]
+File: figures/threshold_analysis.png Graphic file (type bmp)
+<figures/threshold_analysis.png>
+
+
+[6]
+File: figures/chest_pa_comparison.png Graphic file (type bmp)
+<figures/chest_pa_comparison.png>
+
+
+[7]
+
+[8] (./Appendix.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -693,25 +719,16 @@ L3 programming layer <2025-01-18>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Appendix.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Appendix.out':
-(rerunfilecheck)             Before: 80ABE5763014C95D95510B3ECCEF7D75;393
-(rerunfilecheck)             After:  4929A047E5DA4295DBECEBD722681C2E;1169.
+Package rerunfilecheck Info: File `Appendix.out' has not changed.
+(rerunfilecheck)             Checksum: E8B15178661B7E021C4A668B1F8A85B9;2823.
  ) 
 Here is how much of TeX's memory you used:
- 23035 strings out of 475848
- 449469 string characters out of 5776012
- 845106 words of memory out of 5000000
- 45715 multiletter control sequences out of 15000+600000
- 567321 words of font info for 98 fonts, out of 8000000 for 9000
+ 23108 strings out of 475848
+ 451452 string characters out of 5776012
+ 853923 words of memory out of 5000000
+ 45778 multiletter control sequences out of 15000+600000
+ 568874 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,10n,121p,360b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,13n,121p,496b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Appendix.pdf (2 pages).
+Output written on Appendix.pdf (8 pages).

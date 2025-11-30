@@ -20,4 +20,40 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}예측 모델에 사용된 변수 정의}{2}{section.4}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Definitions of the 12 Key Variables Selected for the Predictive Model}}{2}{table.caption.3}\protected@file@percent }
 \newlabel{tab:selected_variables}{{2}{2}{Definitions of the 12 Key Variables Selected for the Predictive Model}{table.caption.3}{}}
-\gdef \@abspage@last{2}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Baseline Model XGBoost Hyperparameter Search Range and Optimal Values}}{3}{table.caption.4}\protected@file@percent }
+\newlabel{tab:hyperparameters_baseline}{{3}{3}{Baseline Model XGBoost Hyperparameter Search Range and Optimal Values}{table.caption.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Proposed Model XGBoost Hyperparameters via Bayesian Optimization}}{3}{table.caption.5}\protected@file@percent }
+\newlabel{tab:hyperparameters_proposed}{{4}{3}{Proposed Model XGBoost Hyperparameters via Bayesian Optimization}{table.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}하이퍼파라미터 설정}{3}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}베이스라인 모델}{3}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}제안 모델}{3}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}상세 실험 결과}{3}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}제약 조건 기반 임계값 최적화 결과}{3}{subsection.6.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Cross-Validation Results at Optimized Threshold (0.650)}}{3}{table.caption.6}\protected@file@percent }
+\newlabel{tab:optimized_threshold}{{5}{3}{Cross-Validation Results at Optimized Threshold (0.650)}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}베이스라인 대비 성능 개선}{3}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Performance Comparison: Baseline vs. Recall-Optimized Model}}{3}{table.caption.7}\protected@file@percent }
+\newlabel{tab:improvement}{{6}{3}{Performance Comparison: Baseline vs. Recall-Optimized Model}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}SHAP 변수 중요도 분석}{4}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Top 10 Feature Importance by SHAP Values (Recall-Optimized Model)}}{4}{table.caption.8}\protected@file@percent }
+\newlabel{tab:shap}{{7}{4}{Top 10 Feature Importance by SHAP Values (Recall-Optimized Model)}{table.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}결과 시각화}{4}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}교차 검증 메트릭 비교}{4}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cross-Validation Metrics Comparison. Comparison of key performance metrics between baseline model and recall-optimized proposed model across 5-fold cross-validation.}}{4}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:cv_metrics_comparison}{{2}{4}{Cross-Validation Metrics Comparison. Comparison of key performance metrics between baseline model and recall-optimized proposed model across 5-fold cross-validation}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}SHAP 분석 결과}{5}{subsection.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces SHAP Feature Importance. Bar plot showing the mean absolute SHAP values for each feature, indicating their relative contribution to model predictions.}}{5}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:shap_importance}{{3}{5}{SHAP Feature Importance. Bar plot showing the mean absolute SHAP values for each feature, indicating their relative contribution to model predictions}{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces SHAP Summary Plot. Each point represents a patient sample; the color indicates the feature value (red=high, blue=low), and the horizontal position shows the SHAP value (positive=increased risk of pneumothorax progression).}}{6}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:shap_summary}{{4}{6}{SHAP Summary Plot. Each point represents a patient sample; the color indicates the feature value (red=high, blue=low), and the horizontal position shows the SHAP value (positive=increased risk of pneumothorax progression)}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}임계값 분석}{7}{subsection.7.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Threshold Analysis. Performance metrics (Accuracy, F1-Score, Precision, Recall) as a function of classification threshold. The optimal threshold (0.650) was selected to satisfy the recall constraint ($\ge 0.45$) and accuracy constraint ($\ge 0.85$) while maximizing F1-score.}}{7}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:threshold_analysis}{{5}{7}{Threshold Analysis. Performance metrics (Accuracy, F1-Score, Precision, Recall) as a function of classification threshold. The optimal threshold (0.650) was selected to satisfy the recall constraint ($\ge 0.45$) and accuracy constraint ($\ge 0.85$) while maximizing F1-score}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}주요 예측 인자에 따른 영상 비교}{7}{section.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%).}}{7}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:chest_comparison}{{6}{7}{Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%)}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {paragraph}{상위 백분위수 환자 (헤모글로빈 13.3 g/dL)}{7}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{중위 백분위수 환자 (헤모글로빈 10.77 g/dL)}{7}{section*.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{하위 백분위수 환자 (헤모글로빈 7.15 g/dL)}{8}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{임상적 해석}{8}{section*.17}\protected@file@percent }
+\gdef \@abspage@last{8}
