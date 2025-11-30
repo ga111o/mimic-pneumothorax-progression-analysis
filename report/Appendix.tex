@@ -34,7 +34,7 @@
 
 \usepackage{float}
 
-\title{MIMIC 기반 기존 연구 리뷰 및 재현 보고서 // Appendix}
+\title{MIMIC 기반 기존 연구 리뷰 및 재현 보고서 \\ Appendix}
 \author{2024404060 강민혁}
 \date{}
 
@@ -42,15 +42,21 @@
 
 \maketitle
 
-\section{Pneumothorax}
+\section{기흉이란}
 
-d
+
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=1.0\textwidth]{figures/original_results.png}
-  \caption{Original Research Performance Evaluation and SHAP Analysis Results. (Left) Model Performance Comparison Table for MIMIC-IV Internal Validation and EICU External Validation. (Right) SHAP Summary Plot for XGBoost Model, showing pH, Hgb, PO2 as the most influential factors in prediction.}
-  \label{fig:original_results}
+  \includegraphics[width=1.0\textwidth]{figures/chest_pa_with_visualization.png}
+  \caption{Pneumothorax X-ray with Visualization}
+  \label{fig:chest_pa_with_visualization}
 \end{figure}
+
+
+폐에 여러 원인으로 구멍이 생겨 새어나온 공기가 흉강에 차서, 폐를 압박해 찌그러뜨리는 질환이며, 외상성 기흉은 외부의 물리적 충격으로 인해 폐나 흉벽이 손상되어 발생하는 기흉이다.
+
+
+\section{소프트웨어 환경 및 버전}
 
 \begin{table}[htbp]
   \centering
@@ -64,14 +70,19 @@ d
     Python & 3.12.12 \\
     CUDA & 13.0 \\
     \midrule
-    XGBoost & 3.1.2 \\
-    Scikit-learn & 1.7.2 \\
-    SHAP & 0.48.0 \\
     Pandas & 2.3.3 \\
     NumPy & 2.3.4 \\
     SciPy & 1.16.3 \\
+    Matplotlib & 3.10.8 \\
+    Seaborn & 0.13.2 \\
+    Statsmodels & 0.14.5 \\
+    Scikit-learn & 1.7.2 \\
+    XGBoost & 3.1.2 \\
+    SHAP & 0.48.0 \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \end{document}
+
+\section

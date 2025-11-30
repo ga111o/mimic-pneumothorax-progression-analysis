@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  30 NOV 2025 14:11
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2025.11.17)  30 NOV 2025 18:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -667,31 +667,29 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 44.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-File: figures/original_results.png Graphic file (type bmp)
-<figures/original_results.png>
+File: figures/chest_pa_with_visualization.png Graphic file (type bmp)
+<figures/chest_pa_with_visualization.png>
 
 
 [1
 
-] (./Appendix.aux)
+]
+
+[2] (./Appendix.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Appendix.out' has not changed.
-(rerunfilecheck)             Checksum: 1CE193CAE6D8BF15F2BAC2E2C818B058;103.
+(rerunfilecheck)             Checksum: 950778D83E8EFAF1515764952FBBC322;222.
  ) 
 Here is how much of TeX's memory you used:
  23003 strings out of 475848
- 448455 string characters out of 5776012
- 837191 words of memory out of 5000000
+ 448565 string characters out of 5776012
+ 838008 words of memory out of 5000000
  45691 multiletter control sequences out of 15000+600000
  565574 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,8n,121p,506b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,8n,121p,361b,2782s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Appendix.pdf (1 page).
+Output written on Appendix.pdf (2 pages).
