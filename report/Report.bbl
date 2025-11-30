@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+
+\bibitem{akiba2019optuna}
+Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta, and Masanori Koyama.
+\newblock Optuna: A next-generation hyperparameter optimization framework.
+\newblock In {\em Proceedings of the 25th ACM SIGKDD International Conference
+  on Knowledge Discovery \& Data Mining}, pages 2623--2631, 2019.
+
+\bibitem{li2024}
+Jing Li, Yinzhen Lv, Jiayi Weng, Wei Chen, He~Huang, and Yuzhuo Zhao.
+\newblock A new evaluation model for traumatic severe pneumothorax based on
+  interpretable machine learning.
+\newblock {\em International Journal of Computers Communications \& Control},
+  19(1):6830, 2024.
+
+\end{thebibliography}
