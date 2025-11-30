@@ -1,0 +1,77 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{seqsplit}
+\usepackage{kotex}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{tabularx}
+
+\usepackage{makecell}
+
+
+\usepackage{fontspec}
+\setmainfont{Noto Serif CJK KR}
+
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=0.5in}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\usepackage{float}
+
+\title{MIMIC 기반 기존 연구 리뷰 및 재현 보고서 // Appendix}
+\author{2024404060 강민혁}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Pneumothorax}
+
+d
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/original_results.png}
+  \caption{Original Research Performance Evaluation and SHAP Analysis Results. (Left) Model Performance Comparison Table for MIMIC-IV Internal Validation and EICU External Validation. (Right) SHAP Summary Plot for XGBoost Model, showing pH, Hgb, PO2 as the most influential factors in prediction.}
+  \label{fig:original_results}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Environment and Key Library Versions}
+  \label{tab:environment}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Software / Library} & \textbf{Version} \\
+    \midrule
+    Python & 3.12.12 \\
+    CUDA & 13.0 \\
+    \midrule
+    XGBoost & 3.1.2 \\
+    Scikit-learn & 1.7.2 \\
+    SHAP & 0.48.0 \\
+    Pandas & 2.3.3 \\
+    NumPy & 2.3.4 \\
+    SciPy & 1.16.3 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\end{document}

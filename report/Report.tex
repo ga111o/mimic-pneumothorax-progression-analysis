@@ -16,6 +16,11 @@
 \usepackage{makecell}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{titlesec}
+
+\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.8ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.2ex plus 0.4ex minus 0.2ex}{0.5ex plus 0.1ex}
+\titlespacing*{\subsubsection}{0pt}{1.0ex plus 0.3ex minus 0.1ex}{0.3ex plus 0.1ex}
 
 \usepackage{fontspec}
 \setmainfont{Noto Serif CJK KR}
@@ -45,7 +50,7 @@
 본 보고서에서 다루는 논문의 제목은 \textbf{``A New Evaluation Model for Traumatic Severe Pneumothorax Based on Interpretable Machine Learning''}이다~\cite{li2024}. 저자는 Jing Li, Yinzhen Lv, Jiayi Weng, Wei Chen, He Huang, Yuzhuo Zhao로 구성되어 있으며, 본 논문은 2024년 \textit{International Journal of Computers Communications \& Control}에 게재되었다. 위 논문은 MIMIC-IV 데이터셋을 기반으로 머신러닝 기법들을 활용하여 외상성 중증 기흉을 신속하고 해석 가능하게 평가하는 모델을 제안한 연구이다.
 
 \subsection{선택 이유 및 연구 주제의 중요성}
-여기에 연구를 선택한 이유와 주제의 임상적/데이터 과학적 중요성을 기술한다.
+외상성 기흉은 신속한 진단이 생존율에 직결되는 응급 질환으로, 영상 검사가 어려운 환경에서도 활용 가능한 예측 모델의 임상적 필요성이 높아 본 연구를 선정하였다. 특히, 해석 가능한 머신러닝을 통해 임상적 타당성을 확보한 점과 MIMIC-IV 데이터를 활용한 재현 가능성이 본 과제의 학습 목표와 부합하여 적절하다고 판단하였다.
 
 \section{기존 논문 리뷰}
 \subsection{연구 목적}
@@ -339,8 +344,32 @@ SHAP을 통해 제시한 모델의 예측에 기여하는 주요 변수들을 �
 
 원 논문과 마찬가지로 Hemoglobin이 가장 중요한 예측 인자로 확인되었으며, 이는 외상성 기흉 환자에서 나타나는 출혈과 관련된 병태생리학적 특징과 일치한다. 민감도 최적화 모델에서는 산소화 관련 지표인 PaO$_2$가 3위로 상승하였고, Lactate와 SpO$_2$의 중요도가 높아졌다. 민감도 최적화 과정에서 모델이 호흡 기능 및 조직 관류 상태를 더욱 중요하게 고려하도록 학습되었음을 시사한다. 다만, 기존 논문에서 가장 중요했던 pH는 본 분석에서도 상위 10개에 포함되지 않았다.
 
-\subsection{시각화 결과}
+\subsection{결과 시각화}
 ROC curve, PR curve, SHAP summary plot 등의 시각화 결과는 본 보고서와 함께 제출한 Appendix.pdf에 수록되어 있다.
+
+\subsection{주요 예측 인자에 따른 영상 비교}
+SHAP 분석 결과 Hemoglobin이 외상성 중증 기흉 예측에 가장 중요한 인자로 확인되었다. 이러한 결과의 임상적 타당성을 검증하기 위해, 실험군 내에서 헤모글로빈 수치에 따른 상위 0.5\%, 중위값(50\%), 하위 0.5\%에 해당하는 환자의 흉부 X선 영상을 비교 분석하였다(Figure~\ref{fig:chest_comparison}).
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/chest_pa_comparison.png}
+  \vspace{-0.5em}
+  \caption{Chest X-ray Comparison by Hemoglobin Levels in Traumatic Pneumothorax Patients. Left: High hemoglobin (13.3 g/dL, top 0.5\%), Center: Median hemoglobin (10.77 g/dL), Right: Low hemoglobin (7.15 g/dL, bottom 0.5\%).}
+  \label{fig:chest_comparison}
+\end{figure}
+
+\paragraph{상위 백분위수 환자 (헤모글로빈 13.3 g/dL)}
+LUL상단 용적이 감소한 것을 확인할 수 있다. 동시에 cardiomegaly가 확인되며, heart failure 치료를 위한 diuretics사용으로 hemoconcentration가 일어나 헤모글로빈 수치가 상대적으로 높아진 것으로 파악된다.
+
+\paragraph{중위 백분위수 환자 (헤모글로빈 10.77 g/dL)}
+RUL상단 용적이 감수한 것을 확인할 수 있다. 우측 상복부에는 피하 기종이 파악되며, adynamic ileus가 예상된다. 헤모글로빈 수치 자체는는 임상적으로 경도의 빈혈에 해당하나, 본 데이터셋 내에서는 중위값에 해당한다. 즉, 외상성 기흉 환자군 전반에서 출혈에 따른 헤모글로빈 저하가 흔함을 확인할 수 있으며, 원인은 다양하게 나타남을 예상할 수 있다.
+
+\paragraph{하위 백분위수 환자 (헤모글로빈 7.15 g/dL)}
+multiple rib fractures 이후 산소포화도 저하와 산소 요구량 증가를 보인 환자이다. rib fractures로 인해 헤모글로빈 수치 감소가 되었음을 예상할 수 있으며, 이와같이 직접적인 외상으로 기흉, 정확히는, Hemo-pneumothorax가 발생함을 확인할 수 있었다.
+
+\paragraph{임상적 해석} 흉부 X선 영상과 헤모글로빈 수치의 비교 분석 결과, 헤모글로빈 수치는 단순한 생체 징후를 넘어 외상의 기전 및 중증도를 반영하는 중요한 간접 지표로 해석된다. 하위 백분위수 환자의 경우, multiple rib fractures과 같은 큰큰손상이 동반되었으며, 이에 따른 hemothorax이 헤모글로빈 수치의 급격한 저하를 유발한 것으로 판단된다. 이는 헤모글로빈 수치가 외상성 기흉의 중증도와 직결되는 출혈량 및 손상 범위를 대변한다는 점을 시사한다. 반면, 상위 백분위수 환자군에서는 cardiomegaly가 확인되며, diuretics 사용으로 인해 hemoconcentration가 일어나 수치가 높게 측정된 것으로 예상되며, 기저 질환이 있는 환자군에서의 특이적 양상으로 해석할 수 있다.
+
+즉, SHAP에서 헤모글로빈이 최상위 예측 인자로 도출된 것은 외상으로 인한 직접적인 출혈과 환자의 기저 상태가 중증 기흉의 예후 및 양상을 결정짓는 핵심 요인이기 때문으로 판단된다. 본 분석에서 사용된 샘플은 각 레벨에서의 하나의 Chest PA만을 가져온 것으로 일반화를 하기에는 한계가 존재하나, 헤모글로빈 수치가 외상성 기흉 환자의 중증도 분류 및 예후 예측에 있어 생리학적으로 타당한 지표임을 뒷받침할 수 있을 가능성을 시사한다.
 
 \section{논의}
 본 과제에서는 원 논문의 주요 결과를 완전히 재현하는 데 한계가 있었다. Table~\ref{tab:performance}에서 확인할 수 있듯이, 베이스라인 재현 모델의 AUROC는 0.910으로 원 논문(0.979)에 비해 약 0.07 낮았으며, Recall은 0.442로 원 논문(0.730)에 비해 약 0.29 낮은 성능을 보였다. 본 절에서는 이러한 성능 차이의 원인과 과제의 한계점을 분석한다.
