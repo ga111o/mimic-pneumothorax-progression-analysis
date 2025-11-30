@@ -13,3 +13,4 @@ __pycache__/
 .env
 logs/*.out
 logs/*.log
+.vscode/
